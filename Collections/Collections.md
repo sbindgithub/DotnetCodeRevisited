@@ -71,7 +71,7 @@ Insert	O(n)
 
 Limitation: Size cannot grow dynamically.
 
-3. Time Complexity (Big-O Basics)
+# 3. Time Complexity (Big-O Basics)
 
 Big-O describes how performance grows with data size.
 
@@ -83,7 +83,7 @@ O(n²)	Quadratic
 
 Correct collection choice depends on operation frequency and dataset size.
 
-4. Non-Generic Collections (Legacy)
+# 4. Non-Generic Collections (Legacy)
 
 Namespace: System.Collections
 
@@ -114,7 +114,7 @@ Runtime casting required
 
 Modern C# should avoid these.
 
-5. Generic Collections
+# 5. Generic Collections
 
 Namespace: System.Collections.Generic
 
@@ -138,8 +138,8 @@ Stack<T>
 
 Queue<T>
 
-6. Core Collections Deep Dive
-6.1 List<T>
+# 6. Core Collections Deep Dive
+## 6.1 List<T>
 
 Dynamic array.
 List<int> numbers = new List<int>();
@@ -164,7 +164,7 @@ Frequent index-based access
 
 Default general-purpose choice
 
-6.2 Dictionary<TKey, TValue>
+## 6.2 Dictionary<TKey, TValue>
 
 Hash-based key-value store.
 Dictionary<string, int> marks = new Dictionary<string, int>();
@@ -187,7 +187,7 @@ Large datasets
 
 Caching
 
-6.3 HashSet<T>
+## 6.3 HashSet<T>
 
 Stores unique values.
 HashSet<string> names = new HashSet<string>();
@@ -207,7 +207,7 @@ Frequent existence checks
 
 Deduplication logic
 
-6.4 Stack<T> (LIFO)
+## 6.4 Stack<T> (LIFO)
 Stack<int> stack = new Stack<int>();
 stack.Push(10);
 int value = stack.Pop();
@@ -219,7 +219,7 @@ Expression evaluation
 
 Time complexity: O(1)
 
-6.5 Queue<T> (FIFO)
+## 6.5 Queue<T> (FIFO)
 Queue<string> queue = new Queue<string>();
 queue.Enqueue("Task1");
 queue.Dequeue();
@@ -232,7 +232,7 @@ Message pipelines
 
 Time complexity: O(1)
 
-7. Understanding “Access by Index → O(1)”
+# 7. Understanding “Access by Index → O(1)”
 What It Means
 
 Accessing an element by position takes constant time regardless of collection size.
@@ -272,7 +272,7 @@ Collections NOT Supporting O(1)
 
 LinkedList<T> → O(n) traversal
 
-8. Interfaces and Abstraction
+# 8. Interfaces and Abstraction
 
 Program against interfaces, not implementations.
 
@@ -305,7 +305,7 @@ Better testability
 
 Flexible design
 
-9. Concurrent Collections
+# 9. Concurrent Collections
 
 Namespace: System.Collections.Concurrent
 
@@ -329,7 +329,7 @@ Why not normal Dictionary?
 
 Because Dictionary is not thread-safe.
 
-10. Immutable Collections
+# 10. Immutable Collections
 
 Namespace: System.Collections.Immutable
 
@@ -349,14 +349,14 @@ Event sourcing
 
 High-concurrency systems
 
-11. Performance Optimization
+# 11. Performance Optimization
 11.1 Set Initial Capacity
 var list = new List<int>(10000);
 
 
 Prevents repeated resizing.
 
-11.2 Choose Correct Collection
+## 11.2 Choose Correct Collection
 
 Scenario:
 10 million records with frequent existence checks.
@@ -369,7 +369,7 @@ Wrong:
 
 List<T> → O(n)
 
-12. Internal Implementation Insights
+# 12. Internal Implementation Insights
 Collection	Internal Structure
 List<T>	Dynamic array
 Dictionary	Hash table
@@ -379,7 +379,7 @@ Queue	Circular array
 
 Understanding internals improves architecture decisions.
 
-13. Decision Matrix
+# 13. Decision Matrix
 Requirement	Recommended Collection
 Ordered list	List<T>
 Fast key lookup	Dictionary
@@ -388,7 +388,7 @@ LIFO	Stack
 FIFO	Queue
 Thread-safe	ConcurrentDictionary
 Immutable	ImmutableList
-14. Real-World Scenarios
+# 14. Real-World Scenarios
 
 Caching layer → ConcurrentDictionary
 Deduplication service → HashSet
@@ -396,7 +396,7 @@ Background job processing → ConcurrentQueue
 In-memory lookup → Dictionary
 High-read shared data → Immutable collections
 
-15. Interview-Level Questions
+# 15. Interview-Level Questions
 
 Why is Dictionary O(1)?
 
