@@ -200,7 +200,7 @@ Large datasets
 Caching
 
 ## 6.3 HashSet<T>
-
+A HashSet<T> in C# is a collection of unique elements that provides high-performance set operations. Elements are stored in no particular order, and any attempt to add a duplicate will simply be ignored without throwing an error. 
 Stores unique values.
 ```
 HashSet<string> names = new HashSet<string>();
