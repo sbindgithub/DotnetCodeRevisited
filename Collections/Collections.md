@@ -182,6 +182,58 @@ Ordered data required
 Frequent index-based access
 
 Default general-purpose choice
+- Contains() is O(n)
+Linear search. Poor choice for frequent existence checks on large datasets.
+
+- Insert at beginning or middle is O(n)
+```
+list.Insert(0, value);
+```
+
+All elements must shift right. Expensive for large lists.
+
+- Remove from beginning or middle is O(n)
+Elements must shift left after removal.
+
+- Not thread-safe
+Concurrent reads/writes can cause race conditions or exceptions.
+
+- No built-in uniqueness guarantee
+Allows duplicates. You must manually enforce uniqueness.
+
+- Resizing overhead
+Internally doubles capacity when full. This causes:
+
+- - Temporary performance spikes
+
+- - Additional memory allocation
+
+- - Copying of entire array
+
+- Lookup by value is inefficient
+No hashing mechanism. Always sequential scan.
+
+Architect-level summary:
+
+Use List<T> when:
+
+- Order matters
+
+- Index access is frequent
+
+- Dataset size is moderate
+
+- No heavy existence checking
+
+Avoid it when:
+
+- You need fast lookups
+
+- You need uniqueness
+
+- You need thread safety
+
+- You frequently insert/remove from the beginning
 
 ## 6.2 Dictionary<TKey, TValue>
 ```
