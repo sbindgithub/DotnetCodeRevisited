@@ -64,10 +64,12 @@ No automatic resizing
 
 Time Complexity:
 
-Operation	Complexity
-Access by index	O(1)
-Search	O(n)
-Insert	O(n)
+| Operation        | Complexity |
+|------------------|------------|
+| Access by index  | O(1)       |
+| Search           | O(n)       |
+| Insert           | O(n)       |
+
 
 Limitation: Size cannot grow dynamically.
 
@@ -75,11 +77,13 @@ Limitation: Size cannot grow dynamically.
 
 Big-O describes how performance grows with data size.
 
-Complexity	Meaning
-O(1)	Constant time
-O(log n)	Logarithmic
-O(n)	Linear
-O(n²)	Quadratic
+| Complexity | Meaning        |
+|------------|---------------|
+| O(1)       | Constant time |
+| O(log n)   | Logarithmic   |
+| O(n)       | Linear        |
+| O(n²)      | Quadratic     |
+
 
 Correct collection choice depends on operation frequency and dataset size.
 
@@ -98,12 +102,13 @@ Stack
 Queue
 
 Example:
+```
 using System.Collections;
 
 ArrayList list = new ArrayList();
 list.Add(1);
 list.Add("Hello");
-
+```
 Problems:
 
 No type safety
@@ -142,19 +147,24 @@ Queue<T>
 ## 6.1 List<T>
 
 Dynamic array.
+```
 List<int> numbers = new List<int>();
 numbers.Add(10);
 numbers.Add(20);
+```
+
 Internal structure: Array
 
 Time Complexity:
 
-Operation	Complexity
-Add (amortized)	O(1)
-Insert	O(n)
-Remove	O(n)
-Search	O(n)
-Index access	O(1)
+| Operation         | Time Complexity |
+|------------------|-----------------|
+| Add (amortized)  | O(1)            |
+| Insert           | O(n)            |
+| Remove           | O(n)            |
+| Search           | O(n)            |
+| Index access     | O(1)            |
+
 
 Use when:
 
@@ -165,19 +175,21 @@ Frequent index-based access
 Default general-purpose choice
 
 ## 6.2 Dictionary<TKey, TValue>
-
+```
 Hash-based key-value store.
 Dictionary<string, int> marks = new Dictionary<string, int>();
 marks["John"] = 85;
-
+```
 Internal structure: Hash table
 
 Time Complexity:
 
-Operation	Average	Worst
-Add	O(1)	O(n)
-Lookup	O(1)	O(n)
-Remove	O(1)	O(n)
+| Operation | Average Time Complexity | Worst Case Time Complexity |
+|-----------|------------------------|----------------------------|
+| Add       | O(1)                   | O(n)                       |
+| Lookup    | O(1)                   | O(n)                       |
+| Remove    | O(1)                   | O(n)                       |
+
 
 Use when:
 
@@ -190,9 +202,12 @@ Caching
 ## 6.3 HashSet<T>
 
 Stores unique values.
+```
 HashSet<string> names = new HashSet<string>();
 names.Add("John");
 names.Add("John"); // Ignored
+```
+
 Time Complexity:
 
 Add → O(1)
@@ -208,9 +223,12 @@ Frequent existence checks
 Deduplication logic
 
 ## 6.4 Stack<T> (LIFO)
+```
 Stack<int> stack = new Stack<int>();
 stack.Push(10);
 int value = stack.Pop();
+```
+
 Use cases:
 
 Undo functionality
@@ -220,10 +238,11 @@ Expression evaluation
 Time complexity: O(1)
 
 ## 6.5 Queue<T> (FIFO)
+```
 Queue<string> queue = new Queue<string>();
 queue.Enqueue("Task1");
 queue.Dequeue();
-
+```
 Use cases:
 
 Job processing
@@ -238,9 +257,10 @@ What It Means
 Accessing an element by position takes constant time regardless of collection size.
 
 Example:
+```
 var list = new List<int> { 10, 20, 30, 40 };
 int value = list[2];   // 30
-
+```
 This operation is O(1).
 
 Why?
@@ -249,14 +269,16 @@ Because List<T> uses contiguous memory.
 
 The runtime calculates:
 
+```
 memory_address = base_address + (index × element_size)
-
+```
 
 No looping. No scanning. Direct access.
 
 Compare with O(n)
+```
 list.Contains(40);
-
+```
 
 This scans elements sequentially.
 
@@ -264,9 +286,8 @@ Worst case: checks all elements → O(n)
 
 Collections Supporting O(1) Index
 
-Array
-
-List<T>
+- Array
+- List<T>
 
 Collections NOT Supporting O(1)
 
@@ -278,16 +299,13 @@ Program against interfaces, not implementations.
 
 Key interfaces:
 
-IEnumerable<T>
-
-ICollection<T>
-
-IList<T>
-
-IDictionary<TKey,TValue>
+- IEnumerable<T>
+- ICollection<T>
+- IList<T>
+- IDictionary<TKey,TValue>
 
 Example:
-
+```
 public void Process(IEnumerable<int> data)
 {
     foreach (var item in data)
@@ -295,15 +313,13 @@ public void Process(IEnumerable<int> data)
         Console.WriteLine(item);
     }
 }
-
+```
 
 Benefits:
 
-Loose coupling
-
-Better testability
-
-Flexible design
+- Loose coupling
+- Better testability
+- Flexible design
 
 # 9. Concurrent Collections
 
@@ -313,17 +329,15 @@ Used in multi-threaded environments.
 
 Examples:
 
-ConcurrentDictionary<TKey,TValue>
-
-ConcurrentQueue<T>
-
-ConcurrentBag<T>
+- ConcurrentDictionary<TKey,TValue>
+- ConcurrentQueue<T>
+- ConcurrentBag<T>
 
 Example:
-
+```
 ConcurrentDictionary<string, int> cache = new();
 cache.TryAdd("A", 1);
-
+```
 
 Why not normal Dictionary?
 
@@ -334,24 +348,24 @@ Because Dictionary is not thread-safe.
 Namespace: System.Collections.Immutable
 
 Example:
-
+```
 var list = ImmutableList.Create(1, 2, 3);
 var newList = list.Add(4);
-
+```
 
 Original list remains unchanged.
 
 Used in:
 
-Functional programming
-
-Event sourcing
-
-High-concurrency systems
+- Functional programming
+- Event sourcing
+- High-concurrency systems
 
 # 11. Performance Optimization
 11.1 Set Initial Capacity
+```
 var list = new List<int>(10000);
+```
 
 
 Prevents repeated resizing.
@@ -363,31 +377,37 @@ Scenario:
 
 Correct:
 
-HashSet<T> → O(1)
+- HashSet<T> → O(1)
 
 Wrong:
 
-List<T> → O(n)
+- List<T> → O(n)
 
 # 12. Internal Implementation Insights
-Collection	Internal Structure
-List<T>	Dynamic array
-Dictionary	Hash table
-HashSet	Hash table
-Stack	Array
-Queue	Circular array
+
+| Collection     | Internal Structure |
+|----------------|-------------------|
+| `List<T>`      | Dynamic array (resizable contiguous memory) |
+| `Dictionary<TKey, TValue>` | Hash table (bucket-based indexing) |
+| `HashSet<T>`   | Hash table (stores unique keys only) |
+| `Stack<T>`     | Array (LIFO behavior on top index) |
+| `Queue<T>`     | Circular array (FIFO with head/tail pointers) |
+
 
 Understanding internals improves architecture decisions.
 
 # 13. Decision Matrix
-Requirement	Recommended Collection
-Ordered list	List<T>
-Fast key lookup	Dictionary
-Uniqueness	HashSet
-LIFO	Stack
-FIFO	Queue
-Thread-safe	ConcurrentDictionary
-Immutable	ImmutableList
+
+| Requirement        | Recommended Collection        |
+|--------------------|------------------------------|
+| Ordered list       | `List<T>`                   |
+| Fast key lookup    | `Dictionary<TKey, TValue>`  |
+| Uniqueness         | `HashSet<T>`                |
+| LIFO               | `Stack<T>`                  |
+| FIFO               | `Queue<T>`                  |
+| Thread-safe        | `ConcurrentDictionary<TKey, TValue>` |
+| Immutable          | `ImmutableList<T>`          |
+
 # 14. Real-World Scenarios
 
 Caching layer → ConcurrentDictionary
@@ -400,43 +420,43 @@ High-read shared data → Immutable collections
 
 Why is Dictionary O(1)?
 
-Hash-based bucket indexing.
+- Hash-based bucket indexing.
 
 Why avoid ArrayList?
 
-No type safety, performance overhead.
+- No type safety, performance overhead.
 
 Difference between List and HashSet?
 
-List allows duplicates.
+- List allows duplicates.
 
-HashSet ensures uniqueness and faster lookup.
+- HashSet ensures uniqueness and faster lookup.
 
 When does Dictionary degrade to O(n)?
 
-Heavy hash collisions.
+- Heavy hash collisions.
 
 Why is index access O(1)?
 
-Direct memory address calculation.
+- Direct memory address calculation.
 
-Final Principle
+# Final Principle
 
 Never choose a collection by habit.
 
 Choose it based on:
 
-Access pattern
+- Access pattern
 
-Data size
+- Data size
 
-Lookup frequency
+- Lookup frequency
 
-Mutation frequency
+- Mutation frequency
 
-Concurrency needs
+- Concurrency needs
 
-Memory constraints
+- Memory constraints
 
 Collections define system performance characteristics.
 
