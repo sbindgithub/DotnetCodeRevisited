@@ -520,8 +520,32 @@ Choose it based on:
 - Memory constraints
 
 Collections define system performance characteristics.
+# Predict the o/p
 
-Understand them deeply.
+```
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        var dict = new Dictionary<int, string>
+        {
+            {1, "A"},
+            {2, "B"}
+        };
+
+        var keys = dict.Keys.ToList();
+        dict.Remove(1);
+
+        Console.WriteLine(keys.Count);
+    }
+}
+```
+Correct answer: 2
+
+
 
 
 
