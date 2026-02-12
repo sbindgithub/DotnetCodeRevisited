@@ -27,6 +27,15 @@
 
 ---
 
+- IEnumerable<T>
+  - ICollection<T>
+    - IDictionary<TKey, TValue>
+    - IList<T>
+      - List<T>
+
+
+
+
 # 1. Introduction to Collections
 
 A **collection** is a data structure used to store, manage, and manipulate groups of objects.
