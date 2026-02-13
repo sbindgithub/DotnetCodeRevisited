@@ -1,5 +1,6 @@
 ﻿using Playground.Domain;
-using Playground.Infrastructure;
+using Playground.LINQ;
+using Playground.Collections;
 
 namespace Playground.Application;
 
@@ -9,10 +10,19 @@ public class TopicService
 
     public TopicService()
     {
-        _examples = ExampleRegistry.GetAll();
+        _examples = new List<IExample>
+        {
+            new SelectExample(),
+            new ListExample(),
+            new LINQ_OfType(),
+            new LINQ_Projection_SelectMany(),
+            new LINQ_Quantifier_Any(),
+            new LINQ_Quantifier_All(),
+            new LINQ_Quantifier_Contains(),
+        };
     }
 
-    public Dictionary<TopicType, List<IExample>> GetGroupedTopics()
+    public Dictionary<TopicType, List<IExample>> GetTopics()
     {
         return _examples
             .GroupBy(e => e.Topic)

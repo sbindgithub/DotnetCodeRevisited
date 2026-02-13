@@ -1,20 +1,20 @@
 ﻿using Playground.Application;
 using Playground.Domain;
 
-var service = new TopicService();
+var topicService = new TopicService();
 
 while (true)
 {
     Console.Clear();
 
-    var topics = service.GetGroupedTopics();
-    var topicList = topics.Keys.ToList();
+    var grouped = topicService.GetTopics();
+    var topics = grouped.Keys.ToList();
 
     Console.WriteLine("Select Topic:");
 
-    for (int i = 0; i < topicList.Count; i++)
+    for (int i = 0; i < topics.Count; i++)
     {
-        Console.WriteLine($"{i + 1}. {topicList[i]}");
+        Console.WriteLine($"{i + 1}. {topics[i]}");
     }
 
     Console.WriteLine("0. Exit");
@@ -27,15 +27,15 @@ while (true)
 
     if (!int.TryParse(topicInput, out int topicIndex) ||
         topicIndex < 1 ||
-        topicIndex > topicList.Count)
+        topicIndex > topics.Count)
     {
         Console.WriteLine("Invalid topic.");
         Console.ReadKey();
         continue;
     }
 
-    var selectedTopic = topicList[topicIndex - 1];
-    var examples = topics[selectedTopic];
+    var selectedTopic = topics[topicIndex - 1];
+    var examples = grouped[selectedTopic];
 
     Console.Clear();
     Console.WriteLine($"Topic: {selectedTopic}");
