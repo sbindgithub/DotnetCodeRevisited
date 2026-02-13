@@ -3,12 +3,57 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "src\Playground\Playground.csproj", "{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Collections", "Collections", "{6113ABF4-F7D3-4FAD-81EC-69810AC54893}"
+	ProjectSection(SolutionItems) = preProject
+		docs\Collections\Collections.md = docs\Collections\Collections.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LINQ and Delegates", "LINQ and Delegates", "{79B5803F-3ADD-4A7B-868C-2C19903CC207}"
+	ProjectSection(SolutionItems) = preProject
+		docs\LINQ and Delegates\ArchitecturalDecission.md = docs\LINQ and Delegates\ArchitecturalDecission.md
+		docs\LINQ and Delegates\Disadvantages.md = docs\LINQ and Delegates\Disadvantages.md
+		docs\LINQ and Delegates\Excercise.md = docs\LINQ and Delegates\Excercise.md
+		docs\LINQ and Delegates\LINQ.md = docs\LINQ and Delegates\LINQ.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Debug|x64.Build.0 = Debug|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Debug|x86.Build.0 = Debug|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Release|x64.ActiveCfg = Release|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Release|x64.Build.0 = Release|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Release|x86.ActiveCfg = Release|Any CPU
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{07CFF9C3-2E4A-4CFA-9953-9C821408B68E} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{6113ABF4-F7D3-4FAD-81EC-69810AC54893} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{79B5803F-3ADD-4A7B-868C-2C19903CC207} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83E15828-9AED-4662-B0D2-989EAB6F87CA}
 	EndGlobalSection
 EndGlobal
