@@ -1,7 +1,8 @@
 ﻿using Playground.Domain;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Playground.Topic.DependencyInjection;
+namespace Playground.Topic.DependencyInjection.Strategy;
+
 
 public class DI_Strategy_Pattern : ExampleBase
 {

@@ -3,10 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Playground.Topic.DependencyInjection;
 
-public class DI_Background_Scope : ExampleBase
+public class DI_Basic_Constructor_Injection : ExampleBase
 {
-    public DI_Background_Scope()
-        : base("DI Background Scope Creation", TopicType.DI)
+    public DI_Basic_Constructor_Injection()
+        : base("DI Basic Constructor Injection", TopicType.DI)
     {
     }
 
@@ -14,28 +14,40 @@ public class DI_Background_Scope : ExampleBase
     {
         var services = new ServiceCollection();
 
-        services.AddScoped<FakeDbContext>();
-        services.AddSingleton<BackgroundJob>();
+        services.AddScoped<IEmailService, EmailService>();
+        services.AddScoped<OrderService>();
 
         var provider = services.BuildServiceProvider();
 
-        var job = provider.GetRequiredService<BackgroundJob>();
-        job.Execute(provider);
+        var service = provider.GetRequiredService<OrderService>();
+        service.PlaceOrder();
     }
 }
 
-public class FakeDbContext
+public interface IEmailService
 {
-    public Guid Id { get; } = Guid.NewGuid();
+    void Send(string message);
 }
 
-public class BackgroundJob
+public class EmailService : IEmailService
 {
-    public void Execute(IServiceProvider provider)
+    public void Send(string message)
     {
-        using var scope = provider.CreateScope();
-        var db = scope.ServiceProvider.GetRequiredService<FakeDbContext>();
+        Console.WriteLine($"Email sent: {message}");
+    }
+}
 
-        Console.WriteLine($"DbContext Instance: {db.Id}");
+public class OrderService
+{
+    private readonly IEmailService _email;
+
+    public OrderService(IEmailService email)
+    {
+        _email = email;
+    }
+
+    public void PlaceOrder()
+    {
+        _email.Send("Order Placed.");
     }
 }

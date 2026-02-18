@@ -1,7 +1,9 @@
 ﻿using Playground.Domain;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Playground.Topic.DependencyInjection;
+namespace Playground.Topic.DependencyInjection.Lifetime;
+
+
 
 public class DI_Lifetime_Comparison : ExampleBase
 {

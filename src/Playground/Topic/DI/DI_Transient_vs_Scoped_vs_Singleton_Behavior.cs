@@ -3,10 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Playground.Topic.DependencyInjection;
 
-public class DI_Basic_Constructor : ExampleBase
+public class DI_Transient_vs_Scoped_vs_Singleton_Behavior : ExampleBase
 {
-    public DI_Basic_Constructor()
-        : base("DI Basic Constructor Injection", TopicType.DI)
+    public DI_Transient_vs_Scoped_vs_Singleton_Behavior()
+        : base("DI Lifetime Comparison", TopicType.DI)
     {
     }
 
@@ -14,40 +14,42 @@ public class DI_Basic_Constructor : ExampleBase
     {
         var services = new ServiceCollection();
 
-        services.AddScoped<IEmailService, EmailService>();
-        services.AddScoped<OrderService>();
+        services.AddTransient<TransientService>();
+        services.AddScoped<ScopedService>();
+        services.AddSingleton<SingletonService>();
 
         var provider = services.BuildServiceProvider();
 
-        var service = provider.GetRequiredService<OrderService>();
-        service.PlaceOrder();
+        using var scope1 = provider.CreateScope();
+        using var scope2 = provider.CreateScope();
+
+        Console.WriteLine("Scope 1:");
+        Print(scope1.ServiceProvider);
+
+        Console.WriteLine("Scope 2:");
+        Print(scope2.ServiceProvider);
+    }
+
+    private void Print(IServiceProvider provider)
+    {
+        Console.WriteLine($"Transient: {provider.GetRequiredService<TransientService>().Id}");
+        Console.WriteLine($"Scoped: {provider.GetRequiredService<ScopedService>().Id}");
+        Console.WriteLine($"Singleton: {provider.GetRequiredService<SingletonService>().Id}");
+        Console.WriteLine();
     }
 }
 
-public interface IEmailService
+public class TransientService
 {
-    void Send(string message);
+    public Guid Id { get; } = Guid.NewGuid();
 }
 
-public class EmailService : IEmailService
+public class ScopedService
 {
-    public void Send(string message)
-    {
-        Console.WriteLine($"Email sent: {message}");
-    }
+    public Guid Id { get; } = Guid.NewGuid();
 }
 
-public class OrderService
+public class SingletonService
 {
-    private readonly IEmailService _email;
-
-    public OrderService(IEmailService email)
-    {
-        _email = email;
-    }
-
-    public void PlaceOrder()
-    {
-        _email.Send("Order Placed.");
-    }
+    public Guid Id { get; } = Guid.NewGuid();
 }

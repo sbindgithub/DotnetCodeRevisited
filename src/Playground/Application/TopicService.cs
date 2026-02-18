@@ -1,9 +1,13 @@
 ﻿using Playground.Domain;
 using Playground.Topic.AsyncAwait;
 using Playground.Topic.Collections;
+using Playground.Topic.DependencyInjection;
 using Playground.Topic.LINQ;
 
 namespace Playground.Application;
+using Playground.Topic.DependencyInjection.Lifetime;
+using Playground.Topic.DependencyInjection.Strategy;
+
 
 public class TopicService
 {
@@ -39,7 +43,18 @@ public class TopicService
             #endregion
 
             #region AsyncAwait
-            new Async_BlockingVsAwait()
+            new Async_BlockingVsAwait(),
+
+            #endregion
+
+            #region DI
+            new DI_Basic_Constructor_Injection(),
+            new DI_Lifetime_Comparison(),
+            new DI_Method_Injection(),
+            new DI_Strategy_Pattern(),
+            new DI_Property_Injection(),
+            new DI_Singleton_With_Transient(),
+            new DI_Transient_vs_Scoped_vs_Singleton_Behavior(),
 
             #endregion
         };
