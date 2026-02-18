@@ -13,13 +13,7 @@ public class LINQ_Quantifier_Contains : ExampleBase
     public override void Run()
     {
         var numbers = new List<int> { 10, 20, 30, 40 };
-
-
-
         var containsTwenty = numbers.Contains(20);
-
-
-
-        Console.WriteLine($"hasEven:", (bool)containsTwenty);
+        Console.WriteLine($"Contains 20:", (bool)containsTwenty);
     }
 }

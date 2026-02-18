@@ -26,5 +26,8 @@ public class LINQ_OfType : ExampleBase
 
         foreach (var n in intTypes)
             Console.WriteLine(n);
+
+        Console.WriteLine("OfType<int>() filters elements by type.,It both checks type and casts automatically.No need for Where.");
+
     }
 }

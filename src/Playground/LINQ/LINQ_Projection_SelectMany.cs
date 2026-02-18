@@ -1,4 +1,5 @@
 ﻿using Playground.Domain;
+using System;
 
 namespace Playground.LINQ;
 
@@ -22,5 +23,8 @@ public class LINQ_Projection_SelectMany : ExampleBase
 
         foreach (var n in flatList)
             Console.WriteLine(n);
+
+        Console.WriteLine("SelectMany projects each inner list");
+        Console.WriteLine("Then flattens them into a single sequence");
     }
 }
