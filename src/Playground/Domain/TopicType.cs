@@ -4,5 +4,6 @@ public enum TopicType
 {
     LINQ,
     Collections,
-    Async
+    Async,
+    DI
 }
