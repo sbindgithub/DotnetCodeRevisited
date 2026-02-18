@@ -1,7 +1,7 @@
 ﻿using Playground.Domain;
 using System.Collections;
 
-namespace Playground.LINQ;
+namespace Playground.Topic.LINQ;
 
 public class LINQ_Element_Operator_SingleOrDefault : ExampleBase
 {

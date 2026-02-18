@@ -1,0 +1,113 @@
+<Plan startDate="2026-02-18">
+        <Day number="1" date="2026-02-18" completed="false">
+            <Topic>Advanced C# Internals + CLR</Topic>
+            <Deliverable>Explain struct vs class trade-offs</Deliverable>
+        </Day>
+        <Day number="2" date="2026-02-19" completed="false">
+            <Topic>Garbage Collector Internals</Topic>
+            <Deliverable>Explain GC generations clearly</Deliverable>
+        </Day>
+        <Day number="3" date="2026-02-20" completed="false">
+            <Topic>Async/Await Internals</Topic>
+            <Deliverable>Demonstrate deadlock scenario</Deliverable>
+        </Day>
+        <Day number="4" date="2026-02-21" completed="false">
+            <Topic>Dependency Injection Mastery</Topic>
+            <Deliverable>Explain captive dependency</Deliverable>
+        </Day>
+        <Day number="5" date="2026-02-22" completed="false">
+            <Topic>LINQ + EF Core Query Pipeline</Topic>
+            <Deliverable>Explain IQueryable danger</Deliverable>
+        </Day>
+        <Day number="6" date="2026-02-23" completed="false">
+            <Topic>EF Core Deep Internals</Topic>
+            <Deliverable>Explain DbContext lifecycle</Deliverable>
+        </Day>
+        <Day number="7" date="2026-02-24" completed="false">
+            <Topic>Clean Architecture + SOLID</Topic>
+            <Deliverable>Explain dependency rule</Deliverable>
+        </Day>
+        <Day number="8" date="2026-02-25" completed="false">
+            <Topic>Microservices vs Modular Monolith</Topic>
+            <Deliverable>Defend architecture choice</Deliverable>
+        </Day>
+        <Day number="9" date="2026-02-26" completed="false">
+            <Topic>Kafka vs RabbitMQ</Topic>
+            <Deliverable>Explain consumer groups</Deliverable>
+        </Day>
+        <Day number="10" date="2026-02-27" completed="false">
+            <Topic>Outbox Pattern</Topic>
+            <Deliverable>Implement transactional outbox</Deliverable>
+        </Day>
+        <Day number="11" date="2026-02-28" completed="false">
+            <Topic>Caching + Redis</Topic>
+            <Deliverable>Explain thundering herd problem</Deliverable>
+        </Day>
+        <Day number="12" date="2026-03-01" completed="true">
+            <Topic>Design Patterns Tradeoffs</Topic>
+            <Deliverable>Explain when NOT to use CQRS</Deliverable>
+        </Day>
+        <Day number="13" date="2026-03-02" completed="false">
+            <Topic>Concurrency + Multithreading</Topic>
+            <Deliverable>Explain lock vs Interlocked</Deliverable>
+        </Day>
+        <Day number="14" date="2026-03-03" completed="false">
+            <Topic>Distributed Systems + CAP</Topic>
+            <Deliverable>Place systems on CAP diagram</Deliverable>
+        </Day>
+        <Day number="15" date="2026-03-04" completed="false">
+            <Topic>Azure App Service vs AKS</Topic>
+            <Deliverable>Defend service choice</Deliverable>
+        </Day>
+        <Day number="16" date="2026-03-05" completed="false">
+            <Topic>Azure Monitoring + Observability</Topic>
+            <Deliverable>Explain distributed tracing</Deliverable>
+        </Day>
+        <Day number="17" date="2026-03-06" completed="false">
+            <Topic>OAuth2 + JWT Internals</Topic>
+            <Deliverable>Explain PKCE properly</Deliverable>
+        </Day>
+        <Day number="18" date="2026-03-07" completed="false">
+            <Topic>API Design + Versioning</Topic>
+            <Deliverable>Defend versioning strategy</Deliverable>
+        </Day>
+        <Day number="19" date="2026-03-08" completed="false">
+            <Topic>SQL Optimization</Topic>
+            <Deliverable>Explain SARGability</Deliverable>
+        </Day>
+        <Day number="20" date="2026-03-09" completed="false">
+            <Topic>Performance Profiling</Topic>
+            <Deliverable>Identify allocation hotspot</Deliverable>
+        </Day>
+        <Day number="21" date="2026-03-10" completed="false">
+            <Topic>CI/CD Architecture</Topic>
+            <Deliverable>Design full pipeline</Deliverable>
+        </Day>
+        <Day number="22" date="2026-03-11" completed="false">
+            <Topic>System Design 1–3</Topic>
+            <Deliverable>Use ARCH framework</Deliverable>
+        </Day>
+        <Day number="23" date="2026-03-12" completed="false">
+            <Topic>System Design 4–6</Topic>
+            <Deliverable>Explain trade-offs deeply</Deliverable>
+        </Day>
+        <Day number="24" date="2026-03-13" completed="false">
+            <Topic>System Design 7–10</Topic>
+            <Deliverable>Master logistics design</Deliverable>
+        </Day>
+        <Day number="25" date="2026-03-14" completed="false">
+            <Topic>Decision Articulation</Topic>
+            <Deliverable>Use Context→Decision→Tradeoff</Deliverable>
+        </Day>
+        <Day number="26" date="2026-03-15" completed="false">
+            <Topic>Behavioral Stories</Topic>
+            <Deliverable>Prepare 10 STAR stories</Deliverable>
+        </Day>
+        <Day number="27" date="2026-03-16" completed="false">
+            <Topic>Mock Interview #1</Topic>
+            <Deliverable>Score yourself 38+/50</Deliverable>
+        </Day>
+        <Day number="28" date="2026-03-17" completed="false">
+            <Topic>Mock Interview #2 + Final Review</Topic>
+            <Deliverable>Score 40+/50</Deliverable>
+        </Day></Plan>

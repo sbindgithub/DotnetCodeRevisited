@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>30-Day Architect Execution Plan</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+        }
+
+        #sidebar {
+            width: 240px;
+            background: #1e1e2f;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+
+            #sidebar h2 {
+                margin-top: 0;
+            }
+
+            #sidebar a {
+                display: block;
+                color: #ccc;
+                text-decoration: none;
+                margin: 12px 0;
+            }
+
+                #sidebar a:hover {
+                    color: white;
+                }
+
+        #content {
+            margin-left: 260px;
+            padding: 30px;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: #f5f5f5;
+            width: calc(100% - 260px);
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            transition: 0.2s ease-in-out;
+        }
+
+        .completed {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            margin-right: 8px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <a href="#overview">Overview</a>
+        <a href="#week1">Week 1</a>
+        <a href="#week2">Week 2</a>
+        <a href="#week3">Week 3</a>
+        <a href="#week4">Week 4</a>
+        <!-- Tracker Link -->
+        <a href="30DayArchitectPlan.html" class="tracker-link">Go to Home Page</a>
+    </div>
+
+    <div id="content">
+
+        <h1>30-Day Architect Execution Plan</h1>
+
+        <div class="date-picker">
+            <label><strong>Select Start Date:</strong></label>
+            <input type="date" id="startDate" onchange="generateDates()">
+        </div>
+
+        <div id="daysContainer"></div>
+
+    </div>
+
+    <script src="js/tracker.js"></script>
+
+</body>
+</html>

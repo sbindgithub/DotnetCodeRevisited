@@ -3,7 +3,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Xml.Linq;
 
-namespace Playground.LINQ;
+namespace Playground.Topic.LINQ;
 
 public class LINQ_SetOperationExcept : ExampleBase
 {

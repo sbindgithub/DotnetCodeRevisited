@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dependency Injection — Architecture Flowchart</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Syne:wght@400;600;700;800&display=swap');
+
+  :root {
+    --bg: #0a0c10;
+    --surface: #111318;
+    --surface2: #181c24;
+    --border: #1e2330;
+    --accent: #00d4ff;
+    --accent2: #ff6b35;
+    --accent3: #a8ff78;
+    --accent4: #ffd93d;
+    --accent5: #ff6bcd;
+    --danger: #ff4757;
+    --text: #e8eaf0;
+    --muted: #6b7385;
+    --line: #2a3045;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Noise overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  header {
+    padding: 40px 60px 30px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  header .tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 60%, var(--accent5) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  header p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 8px;
+    letter-spacing: 1px;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 2px;
+    padding: 20px 60px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  .tab {
+    padding: 10px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom: none;
+    background: transparent;
+    color: var(--muted);
+    transition: all 0.2s;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .tab:hover { color: var(--text); border-color: var(--border); background: var(--surface); }
+  .tab.active { color: var(--accent); border-color: var(--border); background: var(--surface); border-bottom-color: var(--surface); }
+
+  /* CONTENT */
+  .content {
+    padding: 40px 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section { display: none; animation: fadeIn 0.3s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* CHART CONTAINER */
+  .chart-wrap {
+    overflow-x: auto;
+    padding-bottom: 20px;
+  }
+
+  svg text { font-family: 'JetBrains Mono', monospace; }
+
+  /* INFO CARDS */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .card-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .card-body {
+    font-size: 11px;
+    line-height: 1.8;
+    color: #a0a8b8;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .badge-safe { background: rgba(168,255,120,0.15); color: var(--accent3); border: 1px solid rgba(168,255,120,0.3); }
+  .badge-danger { background: rgba(255,71,87,0.15); color: var(--danger); border: 1px solid rgba(255,71,87,0.3); }
+  .badge-warn { background: rgba(255,217,61,0.15); color: var(--accent4); border: 1px solid rgba(255,217,61,0.3); }
+  .badge-info { background: rgba(0,212,255,0.15); color: var(--accent); border: 1px solid rgba(0,212,255,0.3); }
+
+  .rule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    margin-top: 20px;
+  }
+
+  .rule-table th {
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rule-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+
+  .rule-table tr:hover td { background: var(--surface2); }
+
+  .arrow-right { color: var(--accent); font-weight: 700; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    color: var(--accent3);
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">// Architecture Reference</div>
+  <h1>Dependency Injection<br>Complete Flowchart</h1>
+  <p>From concept → lifetimes → clean architecture boundaries</p>
+</header>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('overview')">Overview</button>
+  <button class="tab" onclick="showTab('lifetimes')">Lifetimes</button>
+  <button class="tab" onclick="showTab('cleanarch')">Clean Architecture</button>
+  <button class="tab" onclick="showTab('rules')">Lifetime Rules</button>
+  <button class="tab" onclick="showTab('dbcontext')">DbContext</button>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 1: OVERVIEW -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="content">
+<div class="section active" id="tab-overview">
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#00d4ff"></div> Core Concept</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#a8ff78"></div> Correct / Safe</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ff4757"></div> Violation / Error</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ffd93d"></div> Decision Point</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ff6b35"></div> Pattern / Type</div>
+  </div>
+
+  <div class="chart-wrap">
+  <svg viewBox="0 0 1100 900" width="100%" style="min-width:900px">
+    <defs>
+      <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#3a4560"/>
+      </marker>
+      <marker id="arr-accent" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff"/>
+      </marker>
+      <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#a8ff78"/>
+      </marker>
+      <marker id="arr-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#ff4757"/>
+      </marker>
+      <marker id="arr-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b35"/>
+      </marker>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- BG panels -->
+    <rect width="1100" height="900" fill="#0a0c10"/>
+
+    <!-- ── START NODE ── -->
+    <rect x="400" y="20" width="300" height="54" rx="27" fill="#00d4ff" filter="url(#glow)"/>
+    <text x="550" y="42" text-anchor="middle" fill="#0a0c10" font-size="11" font-weight="700" letter-spacing="2" text-decoration="none">OBJECT CREATION</text>
+    <text x="550" y="60" text-anchor="middle" fill="#0a0c10" font-size="10">Who creates the dependency?</text>
+
+    <!-- Arrow down -->
+    <line x1="550" y1="74" x2="550" y2="120" stroke="#3a4560" stroke-width="2" marker-end="url(#arr)"/>
+
+    <!-- DECISION diamond -->
+    <polygon points="550,120 680,168 550,216 420,168" fill="#181c24" stroke="#ffd93d" stroke-width="2"/>
+    <text x="550" y="163" text-anchor="middle" fill="#ffd93d" font-size="10" font-weight="600">Self-created</text>
+    <text x="550" y="178" text-anchor="middle" fill="#ffd93d" font-size="10">or Injected?</text>
+
+    <!-- LEFT branch: Self Created (tight coupling) -->
+    <line x1="420" y1="168" x2="200" y2="168" stroke="#ff4757" stroke-width="2" marker-end="url(#arr-red)"/>
+    <text x="310" y="160" text-anchor="middle" fill="#ff4757" font-size="9" font-weight="600">SELF CREATED</text>
+
+    <rect x="60" y="140" width="140" height="56" rx="6" fill="#1a0d10" stroke="#ff4757" stroke-width="1.5"/>
+    <text x="130" y="162" text-anchor="middle" fill="#ff4757" font-size="10" font-weight="700">TIGHT COUPLING</text>
+    <text x="130" y="178" text-anchor="middle" fill="#a0a8b8" font-size="9">new EmailService()</text>
+
+    <!-- Tight coupling consequences -->
+    <line x1="130" y1="196" x2="130" y2="250" stroke="#ff4757" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <rect x="30" y="250" width="200" height="110" rx="6" fill="#111318" stroke="#ff4757" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="130" y="272" text-anchor="middle" fill="#ff4757" font-size="9" font-weight="700" letter-spacing="1">CONSEQUENCES</text>
+    <text x="50" y="292" fill="#a0a8b8" font-size="9">✗  Cannot replace service</text>
+    <text x="50" y="310" fill="#a0a8b8" font-size="9">✗  Hard to unit test</text>
+    <text x="50" y="328" fill="#a0a8b8" font-size="9">✗  Violates SOLID (DIP)</text>
+    <text x="50" y="346" fill="#a0a8b8" font-size="9">✗  Rigid architecture</text>
+
+    <!-- RIGHT branch: Injected (DI) -->
+    <line x1="680" y1="168" x2="870" y2="168" stroke="#a8ff78" stroke-width="2" marker-end="url(#arr-green)"/>
+    <text x="775" y="160" text-anchor="middle" fill="#a8ff78" font-size="9" font-weight="600">INJECTED (DI)</text>
+
+    <rect x="870" y="140" width="185" height="56" rx="6" fill="#0d1a0d" stroke="#a8ff78" stroke-width="1.5"/>
+    <text x="962" y="162" text-anchor="middle" fill="#a8ff78" font-size="10" font-weight="700">LOOSE COUPLING</text>
+    <text x="962" y="178" text-anchor="middle" fill="#a0a8b8" font-size="9">Depends on abstraction</text>
+
+    <!-- DI arrow down to types -->
+    <line x1="550" y1="216" x2="550" y2="280" stroke="#3a4560" stroke-width="2" marker-end="url(#arr)"/>
+
+    <!-- DI TYPES BOX -->
+    <rect x="110" y="280" width="880" height="44" rx="6" fill="#111318" stroke="#ff6b35" stroke-width="1.5"/>
+    <text x="550" y="300" text-anchor="middle" fill="#ff6b35" font-size="10" font-weight="700" letter-spacing="2">TYPES OF DEPENDENCY INJECTION</text>
+    <text x="550" y="316" text-anchor="middle" fill="#a0a8b8" font-size="9">Choose based on mandatory vs optional dependency</text>
+
+    <!-- Three branches down from types -->
+    <!-- Constructor -->
+    <line x1="260" y1="324" x2="260" y2="370" stroke="#3a4560" stroke-width="2" marker-end="url(#arr)"/>
+    <rect x="120" y="370" width="280" height="120" rx="6" fill="#181c24" stroke="#00d4ff" stroke-width="2"/>
+    <text x="260" y="392" text-anchor="middle" fill="#00d4ff" font-size="11" font-weight="700">CONSTRUCTOR INJECTION</text>
+    <text x="260" y="410" text-anchor="middle" fill="#a8ff78" font-size="9">★ RECOMMENDED</text>
+    <text x="140" y="432" fill="#a0a8b8" font-size="9">• Dependency required at creation</text>
+    <text x="140" y="450" fill="#a0a8b8" font-size="9">• Object always in valid state</text>
+    <text x="140" y="468" fill="#a0a8b8" font-size="9">• Explicit + immutable</text>
+
+    <!-- Property -->
+    <line x1="550" y1="324" x2="550" y2="370" stroke="#3a4560" stroke-width="2" marker-end="url(#arr)"/>
+    <rect x="400" y="370" width="300" height="120" rx="6" fill="#181c24" stroke="#ffd93d" stroke-width="1.5"/>
+    <text x="550" y="392" text-anchor="middle" fill="#ffd93d" font-size="11" font-weight="700">PROPERTY INJECTION</text>
+    <text x="550" y="410" text-anchor="middle" fill="#ffd93d" font-size="9">⚠ USE WITH CAUTION</text>
+    <text x="420" y="432" fill="#a0a8b8" font-size="9">• Optional dependency</text>
+    <text x="420" y="450" fill="#a0a8b8" font-size="9">• Risk of null reference</text>
+    <text x="420" y="468" fill="#a0a8b8" font-size="9">• Object may be invalid</text>
+
+    <!-- Method -->
+    <line x1="840" y1="324" x2="840" y2="370" stroke="#3a4560" stroke-width="2" marker-end="url(#arr)"/>
+    <rect x="700" y="370" width="280" height="120" rx="6" fill="#181c24" stroke="#ff6bcd" stroke-width="1.5"/>
+    <text x="840" y="392" text-anchor="middle" fill="#ff6bcd" font-size="11" font-weight="700">METHOD INJECTION</text>
+    <text x="840" y="410" text-anchor="middle" fill="#ff6bcd" font-size="9">FOR ONE-TIME USE</text>
+    <text x="718" y="432" fill="#a0a8b8" font-size="9">• Passed as method param</text>
+    <text x="718" y="450" fill="#a0a8b8" font-size="9">• Specific operation only</text>
+    <text x="718" y="468" fill="#a0a8b8" font-size="9">• Minimal coupling</text>
+
+    <!-- Arrow to DI Container -->
+    <line x1="550" y1="490" x2="550" y2="550" stroke="#3a4560" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="560" y="526" fill="#a0a8b8" font-size="9">Managed by</text>
+
+    <!-- DI CONTAINER -->
+    <rect x="300" y="550" width="500" height="70" rx="8" fill="#0d1525" stroke="#00d4ff" stroke-width="2" filter="url(#glow)"/>
+    <text x="550" y="576" text-anchor="middle" fill="#00d4ff" font-size="12" font-weight="700" letter-spacing="1">DI CONTAINER</text>
+    <text x="550" y="596" text-anchor="middle" fill="#a0a8b8" font-size="10">Manages object creation, wiring &amp; lifetime</text>
+    <text x="550" y="612" text-anchor="middle" fill="#6b7385" font-size="9">.NET Built-in · Autofac · Ninject</text>
+
+    <!-- Arrow down to lifetimes -->
+    <line x1="550" y1="620" x2="550" y2="670" stroke="#3a4560" stroke-width="2" marker-end="url(#arr)"/>
+
+    <!-- LIFETIMES -->
+    <rect x="60" y="670" width="980" height="200" rx="8" fill="#111318" stroke="#ff6b35" stroke-width="1.5"/>
+    <text x="550" y="696" text-anchor="middle" fill="#ff6b35" font-size="11" font-weight="700" letter-spacing="2">SERVICE LIFETIMES</text>
+
+    <!-- Transient -->
+    <rect x="80" y="710" width="290" height="140" rx="6" fill="#181c24" stroke="#ff6bcd" stroke-width="1.5"/>
+    <text x="225" y="733" text-anchor="middle" fill="#ff6bcd" font-size="11" font-weight="700">TRANSIENT</text>
+    <text x="225" y="751" text-anchor="middle" fill="#6b7385" font-size="9">AddTransient&lt;T&gt;()</text>
+    <text x="100" y="774" fill="#a0a8b8" font-size="9">• New instance every request</text>
+    <text x="100" y="792" fill="#a0a8b8" font-size="9">• Stateless utilities</text>
+    <text x="100" y="810" fill="#a0a8b8" font-size="9">• Shortest lived</text>
+    <text x="100" y="828" fill="#ff6bcd" font-size="9">⚠ Heavy objects → perf overhead</text>
+
+    <!-- Scoped -->
+    <rect x="400" y="710" width="300" height="140" rx="6" fill="#181c24" stroke="#00d4ff" stroke-width="1.5"/>
+    <text x="550" y="733" text-anchor="middle" fill="#00d4ff" font-size="11" font-weight="700">SCOPED</text>
+    <text x="550" y="751" text-anchor="middle" fill="#6b7385" font-size="9">AddScoped&lt;T&gt;()</text>
+    <text x="420" y="774" fill="#a0a8b8" font-size="9">• One per HTTP request</text>
+    <text x="420" y="792" fill="#a0a8b8" font-size="9">• Shared within request</text>
+    <text x="420" y="810" fill="#a0a8b8" font-size="9">• Default for DbContext</text>
+    <text x="420" y="828" fill="#00d4ff" font-size="9">✔ Business logic layer</text>
+
+    <!-- Singleton -->
+    <rect x="730" y="710" width="290" height="140" rx="6" fill="#181c24" stroke="#a8ff78" stroke-width="1.5"/>
+    <text x="875" y="733" text-anchor="middle" fill="#a8ff78" font-size="11" font-weight="700">SINGLETON</text>
+    <text x="875" y="751" text-anchor="middle" fill="#6b7385" font-size="9">AddSingleton&lt;T&gt;()</text>
+    <text x="750" y="774" fill="#a0a8b8" font-size="9">• One per app lifetime</text>
+    <text x="750" y="792" fill="#a0a8b8" font-size="9">• Thread-safe required</text>
+    <text x="750" y="810" fill="#a0a8b8" font-size="9">• Logging, Cache, Config</text>
+    <text x="750" y="828" fill="#ffd93d" font-size="9">⚠ Never hold request state</text>
+  </svg>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 2: LIFETIMES -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section" id="tab-lifetimes">
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#a8ff78"></div> Allowed</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ff4757"></div> Illegal — Runtime Error</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ffd93d"></div> Allowed but Caution</div>
+  </div>
+
+  <div class="chart-wrap">
+  <svg viewBox="0 0 1000 700" width="100%" style="min-width:800px">
+    <defs>
+      <marker id="arr2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#3a4560"/>
+      </marker>
+      <marker id="arr2g" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#a8ff78"/>
+      </marker>
+      <marker id="arr2r" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#ff4757"/>
+      </marker>
+      <marker id="arr2y" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+      </marker>
+      <filter id="glow2">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <rect width="1000" height="700" fill="#0a0c10"/>
+
+    <!-- Title -->
+    <text x="500" y="36" text-anchor="middle" fill="#00d4ff" font-size="13" font-weight="700" letter-spacing="3">LIFETIME INJECTION RULES</text>
+    <text x="500" y="56" text-anchor="middle" fill="#6b7385" font-size="10">Read arrows as "injects into"</text>
+
+    <!-- SINGLETON BOX -->
+    <rect x="80" y="90" width="240" height="100" rx="8" fill="#0d1a0d" stroke="#a8ff78" stroke-width="2" filter="url(#glow2)"/>
+    <text x="200" y="120" text-anchor="middle" fill="#a8ff78" font-size="14" font-weight="700">SINGLETON</text>
+    <text x="200" y="140" text-anchor="middle" fill="#6b7385" font-size="9">App lifetime</text>
+    <text x="200" y="160" text-anchor="middle" fill="#a0a8b8" font-size="9">Logging · Cache · Config · HttpClientFactory</text>
+    <text x="200" y="178" text-anchor="middle" fill="#a0a8b8" font-size="9">Must be thread-safe · Stateless</text>
+
+    <!-- SCOPED BOX -->
+    <rect x="390" y="90" width="240" height="100" rx="8" fill="#0d1525" stroke="#00d4ff" stroke-width="2" filter="url(#glow2)"/>
+    <text x="510" y="120" text-anchor="middle" fill="#00d4ff" font-size="14" font-weight="700">SCOPED</text>
+    <text x="510" y="140" text-anchor="middle" fill="#6b7385" font-size="9">Per HTTP request</text>
+    <text x="510" y="160" text-anchor="middle" fill="#a0a8b8" font-size="9">DbContext · Business Services</text>
+    <text x="510" y="178" text-anchor="middle" fill="#a0a8b8" font-size="9">One per request · Shared within request</text>
+
+    <!-- TRANSIENT BOX -->
+    <rect x="700" y="90" width="240" height="100" rx="8" fill="#1a0d1a" stroke="#ff6bcd" stroke-width="2" filter="url(#glow2)"/>
+    <text x="820" y="120" text-anchor="middle" fill="#ff6bcd" font-size="14" font-weight="700">TRANSIENT</text>
+    <text x="820" y="140" text-anchor="middle" fill="#6b7385" font-size="9">Per injection</text>
+    <text x="820" y="160" text-anchor="middle" fill="#a0a8b8" font-size="9">Utilities · Formatters · Validators</text>
+    <text x="820" y="178" text-anchor="middle" fill="#a0a8b8" font-size="9">New instance every time</text>
+
+    <!-- ── ALL INTERACTION ARROWS ── -->
+
+    <!-- Singleton → Scoped: ILLEGAL -->
+    <path d="M200,190 Q200,260 510,260 Q510,230 510,190" fill="none" stroke="#ff4757" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arr2r)"/>
+    <rect x="290" y="242" width="130" height="28" rx="4" fill="#1a0d10" stroke="#ff4757" stroke-width="1"/>
+    <text x="355" y="256" text-anchor="middle" fill="#ff4757" font-size="9" font-weight="700">✗ ILLEGAL</text>
+    <text x="355" y="268" text-anchor="middle" fill="#a0a8b8" font-size="8">Runtime error thrown</text>
+
+    <!-- Singleton → Transient: CAUTION -->
+    <path d="M200,190 Q200,300 820,300 Q820,240 820,190" fill="none" stroke="#ffd93d" stroke-width="2" marker-end="url(#arr2y)"/>
+    <rect x="440" y="290" width="170" height="28" rx="4" fill="#1a1500" stroke="#ffd93d" stroke-width="1"/>
+    <text x="525" y="304" text-anchor="middle" fill="#ffd93d" font-size="9" font-weight="700">⚠ CAUTION</text>
+    <text x="525" y="316" text-anchor="middle" fill="#a0a8b8" font-size="8">Transient becomes effectively Singleton</text>
+
+    <!-- Scoped → Singleton: ILLEGAL -->
+    <path d="M510,190 Q510,360 200,360 Q200,320 200,190" fill="none" stroke="#ff4757" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arr2r)"/>
+    <rect x="280" y="348" width="120" height="24" rx="4" fill="#1a0d10" stroke="#ff4757" stroke-width="1"/>
+    <text x="340" y="364" text-anchor="middle" fill="#ff4757" font-size="9" font-weight="700">✗ ILLEGAL</text>
+
+    <!-- Scoped → Transient: OK -->
+    <path d="M630,140 Q700,140 700,140" fill="none" stroke="#a8ff78" stroke-width="2" marker-end="url(#arr2g)"/>
+    <rect x="637" y="126" width="56" height="20" rx="3" fill="#0d1a0d" stroke="#a8ff78" stroke-width="1"/>
+    <text x="665" y="140" text-anchor="middle" fill="#a8ff78" font-size="9" font-weight="700">✓ SAFE</text>
+
+    <!-- Transient → Singleton: ILLEGAL -->
+    <path d="M820,190 Q820,410 200,410 Q200,360 200,360" fill="none" stroke="#ff4757" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arr2r)"/>
+    <rect x="440" y="398" width="170" height="24" rx="4" fill="#1a0d10" stroke="#ff4757" stroke-width="1"/>
+    <text x="525" y="414" text-anchor="middle" fill="#ff4757" font-size="9" font-weight="700">✗ ILLEGAL (Indirect via Scoped)</text>
+
+    <!-- Singleton → Singleton: OK -->
+    <path d="M80,140 Q20,140 20,190 Q20,450 80,450 Q200,450 200,420" fill="none" stroke="#a8ff78" stroke-width="2" marker-end="url(#arr2g)"/>
+    <text x="14" y="290" fill="#a8ff78" font-size="9" transform="rotate(-90,14,290)">✓ SAFE</text>
+
+    <!-- Transient → Scoped: ILLEGAL -->
+    <path d="M820,190 Q820,460 510,460 Q510,420 510,190" fill="none" stroke="#ff4757" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arr2r)"/>
+    <rect x="600" y="448" width="100" height="24" rx="4" fill="#1a0d10" stroke="#ff4757" stroke-width="1"/>
+    <text x="650" y="464" text-anchor="middle" fill="#ff4757" font-size="9" font-weight="700">✗ ILLEGAL</text>
+
+    <!-- GOLDEN RULE BOX -->
+    <rect x="80" y="500" width="860" height="80" rx="8" fill="#111318" stroke="#00d4ff" stroke-width="1.5"/>
+    <text x="500" y="526" text-anchor="middle" fill="#00d4ff" font-size="11" font-weight="700" letter-spacing="2">GOLDEN RULE</text>
+    <text x="500" y="548" text-anchor="middle" fill="#e8eaf0" font-size="12" font-weight="600">You can inject EQUAL or LONGER lifetime into SHORTER lifetime</text>
+    <text x="500" y="568" text-anchor="middle" fill="#a0a8b8" font-size="10">Singleton → Scoped → Transient is the safe direction of flow</text>
+
+    <!-- Special cases -->
+    <rect x="80" y="598" width="400" height="80" rx="6" fill="#111318" stroke="#ffd93d" stroke-width="1.5"/>
+    <text x="280" y="620" text-anchor="middle" fill="#ffd93d" font-size="10" font-weight="700">SINGLETON → TRANSIENT CAVEAT</text>
+    <text x="100" y="640" fill="#a0a8b8" font-size="9">Technically allowed. But the Transient is resolved once</text>
+    <text x="100" y="658" fill="#a0a8b8" font-size="9">and reused forever → becomes effectively Singleton.</text>
+    <text x="100" y="672" fill="#a0a8b8" font-size="9">Use IServiceScopeFactory or Func&lt;T&gt; if truly need fresh.</text>
+
+    <rect x="520" y="598" width="420" height="80" rx="6" fill="#111318" stroke="#a8ff78" stroke-width="1.5"/>
+    <text x="730" y="620" text-anchor="middle" fill="#a8ff78" font-size="10" font-weight="700">BACKGROUND WORKER PATTERN</text>
+    <text x="540" y="640" fill="#a0a8b8" font-size="9">No HTTP scope → Must use IServiceScopeFactory.</text>
+    <text x="540" y="658" fill="#a0a8b8" font-size="9">Create scope per job iteration → Resolve DbContext</text>
+    <text x="540" y="672" fill="#a0a8b8" font-size="9">inside → Dispose when done.</text>
+  </svg>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 3: CLEAN ARCHITECTURE -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section" id="tab-cleanarch">
+  <div class="chart-wrap">
+  <svg viewBox="0 0 1000 780" width="100%" style="min-width:800px">
+    <defs>
+      <filter id="glow3">
+        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <rect width="1000" height="780" fill="#0a0c10"/>
+
+    <!-- Title -->
+    <text x="500" y="36" text-anchor="middle" fill="#00d4ff" font-size="13" font-weight="700" letter-spacing="3">CLEAN ARCHITECTURE + DI BOUNDARIES</text>
+    <text x="500" y="56" text-anchor="middle" fill="#6b7385" font-size="10">Dependencies point inward only</text>
+
+    <!-- Concentric layers -->
+    <!-- Outer: Presentation -->
+    <ellipse cx="500" cy="420" rx="480" ry="300" fill="#1a1014" stroke="#ff6bcd" stroke-width="2"/>
+    <text x="500" y="710" text-anchor="middle" fill="#ff6bcd" font-size="11" font-weight="700" letter-spacing="2">PRESENTATION / API</text>
+    <text x="500" y="727" text-anchor="middle" fill="#6b7385" font-size="9">Controllers · Minimal APIs · CLI Entry Point</text>
+
+    <!-- Infrastructure -->
+    <ellipse cx="500" cy="410" rx="380" ry="232" fill="#0f1820" stroke="#ff6b35" stroke-width="2"/>
+    <text x="500" y="634" text-anchor="middle" fill="#ff6b35" font-size="11" font-weight="700" letter-spacing="2">INFRASTRUCTURE</text>
+    <text x="500" y="650" text-anchor="middle" fill="#6b7385" font-size="9">EF Core · Repositories · Blob · Queue · External APIs</text>
+
+    <!-- Application -->
+    <ellipse cx="500" cy="400" rx="270" ry="168" fill="#0a1218" stroke="#ffd93d" stroke-width="2"/>
+    <text x="500" y="562" text-anchor="middle" fill="#ffd93d" font-size="11" font-weight="700" letter-spacing="2">APPLICATION</text>
+    <text x="500" y="578" text-anchor="middle" fill="#6b7385" font-size="9">Use Cases · Handlers · Interfaces · DTOs</text>
+
+    <!-- Domain (core) -->
+    <ellipse cx="500" cy="390" rx="162" ry="102" fill="#0a1a0a" stroke="#a8ff78" stroke-width="2" filter="url(#glow3)"/>
+    <text x="500" y="376" text-anchor="middle" fill="#a8ff78" font-size="13" font-weight="700">DOMAIN</text>
+    <text x="500" y="396" text-anchor="middle" fill="#a8ff78" font-size="9">Entities · Value Objects</text>
+    <text x="500" y="414" text-anchor="middle" fill="#a8ff78" font-size="9">Business Rules · Invariants</text>
+    <text x="500" y="432" text-anchor="middle" fill="#6b7385" font-size="8">Zero external dependencies</text>
+    <text x="500" y="448" text-anchor="middle" fill="#6b7385" font-size="8">No EF · No ASP.NET · No Attributes</text>
+
+    <!-- Dependency arrows (all pointing inward) -->
+    <!-- Presentation → Application -->
+    <path d="M280,560 Q240,520 340,520" fill="none" stroke="#ff6bcd" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="272" y="548" fill="#ff6bcd" font-size="8" transform="rotate(-30,272,548)">depends on</text>
+
+    <!-- Infrastructure → Application -->
+    <path d="M720,560 Q760,520 660,520" fill="none" stroke="#ff6b35" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="695" y="548" fill="#ff6b35" font-size="8" transform="rotate(30,695,548)">implements</text>
+
+    <!-- Application → Domain -->
+    <path d="M420,520 Q380,490 400,470" fill="none" stroke="#ffd93d" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="380" y="498" fill="#ffd93d" font-size="8">depends on</text>
+
+    <!-- DI Container label -->
+    <rect x="30" y="80" width="200" height="70" rx="6" fill="#111318" stroke="#00d4ff" stroke-width="1.5"/>
+    <text x="130" y="104" text-anchor="middle" fill="#00d4ff" font-size="10" font-weight="700">DI CONTAINER</text>
+    <text x="130" y="122" text-anchor="middle" fill="#a0a8b8" font-size="9">Wires interfaces to</text>
+    <text x="130" y="138" text-anchor="middle" fill="#a0a8b8" font-size="9">implementations at runtime</text>
+    <line x1="230" y1="115" x2="300" y2="300" stroke="#00d4ff" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="240" y="210" fill="#00d4ff" font-size="8">Runtime wiring</text>
+    <text x="240" y="223" fill="#00d4ff" font-size="8">(no compile-time</text>
+    <text x="240" y="236" fill="#00d4ff" font-size="8">circular dep)</text>
+
+    <!-- Registration example -->
+    <rect x="770" y="70" width="210" height="110" rx="6" fill="#111318" stroke="#ff6b35" stroke-width="1"/>
+    <text x="875" y="92" text-anchor="middle" fill="#ff6b35" font-size="9" font-weight="700">REGISTRATION LOCATION</text>
+    <text x="785" y="112" fill="#a8ff78" font-size="9">services.AddScoped&lt;</text>
+    <text x="785" y="130" fill="#a8ff78" font-size="9">  IUserRepository,</text>
+    <text x="785" y="148" fill="#a8ff78" font-size="9">  UserRepository&gt;();</text>
+    <text x="785" y="168" fill="#6b7385" font-size="9">Lives in Infrastructure</text>
+
+    <!-- EF Core position note -->
+    <rect x="30" y="200" width="200" height="90" rx="6" fill="#111318" stroke="#ff6b35" stroke-width="1"/>
+    <text x="130" y="222" text-anchor="middle" fill="#ff6b35" font-size="9" font-weight="700">EF CORE BELONGS IN</text>
+    <text x="50" y="244" fill="#a8ff78" font-size="9">✓ Infrastructure layer</text>
+    <text x="50" y="262" fill="#a8ff78" font-size="9">✓ DbContext class</text>
+    <text x="50" y="280" fill="#a8ff78" font-size="9">✓ Repositories</text>
+    <text x="50" y="298" fill="#ff4757" font-size="9">✗ NOT in Domain entities</text>
+
+    <!-- Validation split note -->
+    <rect x="770" y="200" width="220" height="120" rx="6" fill="#111318" stroke="#a8ff78" stroke-width="1"/>
+    <text x="880" y="222" text-anchor="middle" fill="#a8ff78" font-size="9" font-weight="700">VALIDATION PLACEMENT</text>
+    <text x="785" y="244" fill="#a8ff78" font-size="9">Domain: Business invariants</text>
+    <text x="785" y="260" fill="#6b7385" font-size="8">  throw in ctor if invalid</text>
+    <text x="785" y="280" fill="#ffd93d" font-size="9">Application: Use-case rules</text>
+    <text x="785" y="296" fill="#6b7385" font-size="8">  FluentValidation in handlers</text>
+    <text x="785" y="316" fill="#ff6bcd" font-size="9">Presentation: Input/DTO rules</text>
+    <text x="785" y="332" fill="#6b7385" font-size="8">  [Required], [StringLength]</text>
+  </svg>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 4: LIFETIME RULES -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section" id="tab-rules">
+  <table class="rule-table">
+    <thead>
+      <tr>
+        <th>Consumer</th>
+        <th>Injected Dependency</th>
+        <th>Status</th>
+        <th>What Happens</th>
+        <th>Fix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Singleton</td>
+        <td><span class="arrow-right">→</span> Scoped</td>
+        <td><span class="badge badge-danger">ILLEGAL</span></td>
+        <td>Runtime error: <code>"Cannot consume scoped service from singleton"</code>. After request ends, DbContext is disposed but Singleton holds reference → crash.</td>
+        <td>Make consumer Scoped, or use <code>IServiceScopeFactory</code></td>
+      </tr>
+      <tr>
+        <td>Singleton</td>
+        <td><span class="arrow-right">→</span> Transient</td>
+        <td><span class="badge badge-warn">CAUTION</span></td>
+        <td>Allowed but Transient is resolved once during Singleton construction → becomes effectively Singleton for app lifetime. Defeats purpose of Transient.</td>
+        <td>Use <code>IServiceProvider.GetRequiredService&lt;T&gt;()</code> inside method, or factory <code>Func&lt;T&gt;</code></td>
+      </tr>
+      <tr>
+        <td>Singleton</td>
+        <td><span class="arrow-right">→</span> Singleton</td>
+        <td><span class="badge badge-safe">SAFE</span></td>
+        <td>Both live for app lifetime. Completely valid. Ensure thread-safety if mutable state exists.</td>
+        <td>No fix needed. Ensure thread safety.</td>
+      </tr>
+      <tr>
+        <td>Scoped</td>
+        <td><span class="arrow-right">→</span> Singleton</td>
+        <td><span class="badge badge-safe">SAFE</span></td>
+        <td>Longer lifetime injected into shorter lifetime. Perfectly valid. Common pattern: Scoped business service injecting Singleton cache or logger.</td>
+        <td>No fix needed.</td>
+      </tr>
+      <tr>
+        <td>Scoped</td>
+        <td><span class="arrow-right">→</span> Scoped</td>
+        <td><span class="badge badge-safe">SAFE</span></td>
+        <td>Both live per request. Shared within same HTTP request scope. Standard pattern.</td>
+        <td>No fix needed.</td>
+      </tr>
+      <tr>
+        <td>Scoped</td>
+        <td><span class="arrow-right">→</span> Transient</td>
+        <td><span class="badge badge-safe">SAFE</span></td>
+        <td>Transient created fresh each time Scoped service requests it. Perfectly valid.</td>
+        <td>No fix needed.</td>
+      </tr>
+      <tr>
+        <td>Transient</td>
+        <td><span class="arrow-right">→</span> Singleton</td>
+        <td><span class="badge badge-safe">SAFE</span></td>
+        <td>Singleton is long-lived; Transient is short-lived. Each Transient instance gets the same Singleton. Valid and common.</td>
+        <td>No fix needed. Watch for shared mutable state in Singleton.</td>
+      </tr>
+      <tr>
+        <td>Transient</td>
+        <td><span class="arrow-right">→</span> Scoped</td>
+        <td><span class="badge badge-safe">SAFE</span></td>
+        <td>If within an active scope (HTTP request), valid. Transient gets the current scope's instance.</td>
+        <td>Ensure Transient is only resolved within active scope context.</td>
+      </tr>
+      <tr>
+        <td>Transient</td>
+        <td><span class="arrow-right">→</span> Transient</td>
+        <td><span class="badge badge-safe">SAFE</span></td>
+        <td>Both get fresh instances. Completely valid. Watch performance with heavy objects.</td>
+        <td>No fix needed. Monitor memory/perf for heavy objects.</td>
+      </tr>
+      <tr>
+        <td>Background Worker (Singleton)</td>
+        <td><span class="arrow-right">→</span> DbContext (Scoped)</td>
+        <td><span class="badge badge-danger">ILLEGAL</span></td>
+        <td>BackgroundService is Singleton. DbContext is Scoped. Direct injection fails at startup.</td>
+        <td>Inject <code>IServiceScopeFactory</code>. Create scope per job iteration. Resolve DbContext inside scope. Dispose after.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cards" style="margin-top:32px">
+    <div class="card">
+      <div class="badge badge-info">ARCHITECT RULE</div>
+      <div class="card-title" style="color:#00d4ff">The Golden Rule</div>
+      <div class="card-body">Inject <strong style="color:#e8eaf0">equal or longer lifetime</strong> into shorter lifetime. Flow safely: <strong style="color:#a8ff78">Singleton → Scoped → Transient</strong>. Never reverse this.</div>
+    </div>
+    <div class="card">
+      <div class="badge badge-warn">DECISION</div>
+      <div class="card-title" style="color:#ffd93d">When to Use Singleton</div>
+      <div class="card-body">Service is <strong style="color:#e8eaf0">stateless</strong>, <strong style="color:#e8eaf0">thread-safe</strong>, expensive to create, or represents shared infrastructure. Never hold request-specific data in Singleton.</div>
+    </div>
+    <div class="card">
+      <div class="badge badge-danger">AVOID</div>
+      <div class="card-title" style="color:#ff4757">10+ Constructor Params</div>
+      <div class="card-body">If a class needs 8+ injected dependencies, don't blame DI. Blame the <strong style="color:#e8eaf0">design</strong>. Break responsibilities. Use Facade or Mediator patterns instead.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 5: DBCONTEXT -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section" id="tab-dbcontext">
+  <div class="chart-wrap">
+  <svg viewBox="0 0 1000 720" width="100%" style="min-width:800px">
+    <defs>
+      <filter id="glow4">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <rect width="1000" height="720" fill="#0a0c10"/>
+
+    <!-- Title -->
+    <text x="500" y="36" text-anchor="middle" fill="#00d4ff" font-size="13" font-weight="700" letter-spacing="2">DbContext LIFECYCLE &amp; PATTERNS</text>
+
+    <!-- Why Scoped? -->
+    <rect x="60" y="60" width="880" height="50" rx="6" fill="#111318" stroke="#00d4ff" stroke-width="1.5"/>
+    <text x="500" y="82" text-anchor="middle" fill="#00d4ff" font-size="11" font-weight="700">WHY DbContext IS SCOPED (NOT SINGLETON, NOT TRANSIENT)</text>
+    <text x="500" y="100" text-anchor="middle" fill="#a0a8b8" font-size="9">DbContext = Unit of Work. One HTTP request → One DbContext → One transactional boundary → Dispose</text>
+
+    <!-- Three lifetime columns -->
+    <!-- Singleton - wrong -->
+    <rect x="60" y="130" width="280" height="200" rx="6" fill="#1a0d10" stroke="#ff4757" stroke-width="2"/>
+    <text x="200" y="154" text-anchor="middle" fill="#ff4757" font-size="11" font-weight="700">SINGLETON ✗</text>
+    <text x="200" y="172" text-anchor="middle" fill="#ff4757" font-size="9">NEVER USE</text>
+    <text x="80" y="196" fill="#a0a8b8" font-size="9">• DbContext is NOT thread-safe</text>
+    <text x="80" y="214" fill="#a0a8b8" font-size="9">• All requests share one instance</text>
+    <text x="80" y="232" fill="#a0a8b8" font-size="9">• Race conditions on every query</text>
+    <text x="80" y="250" fill="#a0a8b8" font-size="9">• Change tracker accumulates forever</text>
+    <text x="80" y="268" fill="#a0a8b8" font-size="9">• Memory grows unbounded</text>
+    <text x="80" y="286" fill="#a0a8b8" font-size="9">• Transactions collide across users</text>
+    <text x="80" y="304" fill="#ff4757" font-size="9" font-weight="700">→ Catastrophic</text>
+
+    <!-- Scoped - correct -->
+    <rect x="370" y="130" width="280" height="200" rx="6" fill="#0d1a0d" stroke="#a8ff78" stroke-width="2" filter="url(#glow4)"/>
+    <text x="510" y="154" text-anchor="middle" fill="#a8ff78" font-size="11" font-weight="700">SCOPED ✓</text>
+    <text x="510" y="172" text-anchor="middle" fill="#a8ff78" font-size="9">DEFAULT &amp; CORRECT</text>
+    <text x="390" y="196" fill="#a0a8b8" font-size="9">• One instance per HTTP request</text>
+    <text x="390" y="214" fill="#a0a8b8" font-size="9">• Shared across services in request</text>
+    <text x="390" y="232" fill="#a0a8b8" font-size="9">• Consistent change tracking</text>
+    <text x="390" y="250" fill="#a0a8b8" font-size="9">• Single transaction boundary</text>
+    <text x="390" y="268" fill="#a0a8b8" font-size="9">• Auto-disposed at request end</text>
+    <text x="390" y="286" fill="#a0a8b8" font-size="9">• Thread isolation between requests</text>
+    <text x="390" y="304" fill="#a8ff78" font-size="9" font-weight="700">→ Perfect alignment</text>
+
+    <!-- Transient - wrong -->
+    <rect x="680" y="130" width="280" height="200" rx="6" fill="#1a1500" stroke="#ffd93d" stroke-width="2"/>
+    <text x="820" y="154" text-anchor="middle" fill="#ffd93d" font-size="11" font-weight="700">TRANSIENT ✗</text>
+    <text x="820" y="172" text-anchor="middle" fill="#ffd93d" font-size="9">BREAKS UNIT OF WORK</text>
+    <text x="698" y="196" fill="#a0a8b8" font-size="9">• New context per injection</text>
+    <text x="698" y="214" fill="#a0a8b8" font-size="9">• Service A gets context #1</text>
+    <text x="698" y="232" fill="#a0a8b8" font-size="9">• Service B gets context #2</text>
+    <text x="698" y="250" fill="#a0a8b8" font-size="9">• No shared tracking state</text>
+    <text x="698" y="268" fill="#a0a8b8" font-size="9">• SaveChanges inconsistent</text>
+    <text x="698" y="286" fill="#a0a8b8" font-size="9">• Loses request consistency</text>
+    <text x="698" y="304" fill="#ffd93d" font-size="9" font-weight="700">→ Architecturally wrong</text>
+
+    <!-- DbContext patterns -->
+    <text x="500" y="368" text-anchor="middle" fill="#ff6b35" font-size="11" font-weight="700" letter-spacing="2">DbContext INTERNAL PATTERNS</text>
+
+    <rect x="60" y="380" width="420" height="130" rx="6" fill="#111318" stroke="#ff6b35" stroke-width="1.5"/>
+    <text x="270" y="402" text-anchor="middle" fill="#ff6b35" font-size="10" font-weight="700">UNIT OF WORK</text>
+    <text x="80" y="424" fill="#a0a8b8" font-size="9">• ChangeTracker tracks entity state (Added/Modified/Deleted)</text>
+    <text x="80" y="442" fill="#a0a8b8" font-size="9">• SaveChanges() = commit all changes atomically</text>
+    <text x="80" y="460" fill="#a0a8b8" font-size="9">• One context = One Unit of Work</text>
+    <text x="80" y="478" fill="#a0a8b8" font-size="9">• DbContext IS the Unit of Work — no wrapper needed</text>
+    <text x="80" y="496" fill="#6b7385" font-size="8">context.Users.Add(u) → context.SaveChanges() → atomic commit</text>
+
+    <rect x="520" y="380" width="420" height="130" rx="6" fill="#111318" stroke="#00d4ff" stroke-width="1.5"/>
+    <text x="730" y="402" text-anchor="middle" fill="#00d4ff" font-size="10" font-weight="700">REPOSITORY (via DbSet)</text>
+    <text x="540" y="424" fill="#a0a8b8" font-size="9">• DbSet&lt;T&gt; is the Repository for entity T</text>
+    <text x="540" y="442" fill="#a0a8b8" font-size="9">• context.Users = IUserRepository equivalent</text>
+    <text x="540" y="460" fill="#a0a8b8" font-size="9">• LINQ queries, Add, Remove, Find built-in</text>
+    <text x="540" y="478" fill="#a0a8b8" font-size="9">• Custom repos only for: DDD boundaries, IQ control</text>
+    <text x="540" y="496" fill="#6b7385" font-size="8">Generic repo wrapping DbSet = zero added value</text>
+
+    <!-- Background worker correct pattern -->
+    <rect x="60" y="530" width="880" height="166" rx="6" fill="#111318" stroke="#a8ff78" stroke-width="1.5"/>
+    <text x="500" y="552" text-anchor="middle" fill="#a8ff78" font-size="10" font-weight="700" letter-spacing="2">CORRECT PATTERN: DbContext IN BACKGROUND WORKER</text>
+
+    <!-- flow boxes -->
+    <rect x="80" y="568" width="130" height="40" rx="4" fill="#181c24" stroke="#6b7385" stroke-width="1"/>
+    <text x="145" y="583" text-anchor="middle" fill="#a0a8b8" font-size="9">Worker Loop</text>
+    <text x="145" y="598" text-anchor="middle" fill="#6b7385" font-size="8">BackgroundService</text>
+
+    <line x1="210" y1="588" x2="240" y2="588" stroke="#a8ff78" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <rect x="240" y="568" width="140" height="40" rx="4" fill="#181c24" stroke="#a8ff78" stroke-width="1"/>
+    <text x="310" y="583" text-anchor="middle" fill="#a8ff78" font-size="9">Create Scope</text>
+    <text x="310" y="598" text-anchor="middle" fill="#6b7385" font-size="8">IServiceScopeFactory</text>
+
+    <line x1="380" y1="588" x2="410" y2="588" stroke="#a8ff78" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <rect x="410" y="568" width="140" height="40" rx="4" fill="#181c24" stroke="#a8ff78" stroke-width="1"/>
+    <text x="480" y="583" text-anchor="middle" fill="#a8ff78" font-size="9">Resolve DbContext</text>
+    <text x="480" y="598" text-anchor="middle" fill="#6b7385" font-size="8">scope.GetRequiredService</text>
+
+    <line x1="550" y1="588" x2="580" y2="588" stroke="#a8ff78" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <rect x="580" y="568" width="140" height="40" rx="4" fill="#181c24" stroke="#a8ff78" stroke-width="1"/>
+    <text x="650" y="583" text-anchor="middle" fill="#a8ff78" font-size="9">Perform Work</text>
+    <text x="650" y="598" text-anchor="middle" fill="#6b7385" font-size="8">query → SaveChanges</text>
+
+    <line x1="720" y1="588" x2="750" y2="588" stroke="#a8ff78" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <rect x="750" y="568" width="170" height="40" rx="4" fill="#0d1a0d" stroke="#a8ff78" stroke-width="1.5"/>
+    <text x="835" y="583" text-anchor="middle" fill="#a8ff78" font-size="9">Dispose Scope</text>
+    <text x="835" y="598" text-anchor="middle" fill="#6b7385" font-size="8">using → auto-dispose</text>
+
+    <!-- return arrow -->
+    <path d="M835,608 Q835,650 145,650 Q145,620 145,608" fill="none" stroke="#3a4560" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+    <text x="490" y="668" text-anchor="middle" fill="#6b7385" font-size="9">Next iteration → fresh scope → fresh DbContext</text>
+
+    <text x="80" y="690" fill="#6b7385" font-size="8">Alternative: Inject IDbContextFactory&lt;T&gt; directly — cleaner for EF Core 5+</text>
+  </svg>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Animate SVG elements on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const svgEls = document.querySelectorAll('svg rect, svg ellipse, svg polygon');
+    svgEls.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transition = `opacity 0.4s ease ${i * 8}ms`;
+      setTimeout(() => el.style.opacity = '1', 50);
+    });
+  });
+</script>
+</body>
+</html>

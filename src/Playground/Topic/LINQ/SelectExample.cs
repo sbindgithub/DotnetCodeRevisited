@@ -1,6 +1,6 @@
 ﻿using Playground.Domain;
 
-namespace Playground.LINQ;
+namespace Playground.Topic.LINQ;
 
 public class SelectExample : ExampleBase
 {

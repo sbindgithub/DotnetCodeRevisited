@@ -7,7 +7,7 @@ using System.Numerics;
 using System.Runtime.ConstrainedExecution;
 using System.Xml.Linq;
 
-namespace Playground.LINQ;
+namespace Playground.Topic.LINQ;
 
 public class LINQ_SCENARIO_BASED : ExampleBase
 {

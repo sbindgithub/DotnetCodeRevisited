@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.IO.Pipes;
 
-namespace Playground.LINQ;
+namespace Playground.Topic.LINQ;
 
 public class LINQ_Ordering_OrderByThenByDescending : ExampleBase
 {

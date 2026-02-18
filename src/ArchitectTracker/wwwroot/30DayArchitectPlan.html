@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>.NET Architect Growth Blueprint</title>
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --sidebar: #111827;
+            --card: #1e293b;
+            --border: #334155;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --accent: #6366f1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            font-size: 18px; /* Increased base font size */
+            line-height: 1.7;
+        }
+
+        /* Sidebar */
+        #toc {
+            width: 300px;
+            background: var(--sidebar);
+            padding: 30px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            border-right: 1px solid var(--border);
+        }
+
+            #toc h2 {
+                font-size: 16px;
+                letter-spacing: 1px;
+                color: var(--muted);
+                margin-top: 0;
+            }
+
+            #toc a {
+                display: block;
+                text-decoration: none;
+                color: var(--muted);
+                margin: 12px 0;
+                font-size: 16px;
+                transition: 0.2s ease;
+            }
+
+                #toc a:hover {
+                    color: white;
+                    transform: translateX(4px);
+                }
+
+        #content {
+            margin-left: 320px;
+            padding: 60px;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 26px;
+            margin-top: 70px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 40px;
+        }
+
+        .section {
+            background: var(--card);
+            padding: 40px;
+            border-radius: 14px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background: #1e293b;
+            padding: 14px;
+            text-align: left;
+            font-size: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--muted);
+        }
+
+        .highlight {
+            background: #1e3a8a33;
+            padding: 25px;
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            margin-top: 25px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="toc">
+        <h2>ARCHITECT BLUEPRINT</h2>
+        <a href="#overview">Overview</a>
+        <a href="#gap">Brutal Gap Analysis</a>
+        <a href="#roadmap">Roadmap Structure</a>
+        <a href="#systemdesign">System Design Mastery</a>
+        <a href="#behavioral">Behavioral & Leadership</a>
+        <a href="#mock">Mock Simulation Plan</a>
+        <a href="#execution">Execution Declaration</a>
+        <a href="architect.html" class="tracker-link">Open Progress Tracker</a>
+
+    </div>
+
+    <div id="content">
+
+        <h1 id="overview">.NET Architect Growth Blueprint</h1>
+
+        <div class="section">
+            <p><strong>From Associate Lead to Architectural Ownership</strong></p>
+
+            <p>
+                This document outlines the structured capability development required to evolve
+                from implementation-level engineering to system-level architectural design.
+            </p>
+
+            <div class="highlight">
+                Depth. Trade-offs. Failure modeling. System evolution.
+            </div>
+        </div>
+
+        <h2 id="gap">SECTION 1 — Brutal Gap Analysis</h2>
+
+        <div class="section">
+
+            <h3>Technical Gap</h3>
+
+            <table>
+                <tr>
+                    <th>Area</th>
+                    <th>Current State</th>
+                    <th>Architect-Level Expectation</th>
+                </tr>
+                <tr>
+                    <td>System Design</td>
+                    <td>Feature-level design</td>
+                    <td>Full-system trade-offs, scale, failure modes</td>
+                </tr>
+                <tr>
+                    <td>Dependency Injection</td>
+                    <td>Constructor injection</td>
+                    <td>Lifetime modeling, captive dependency avoidance</td>
+                </tr>
+                <tr>
+                    <td>EF Core</td>
+                    <td>CRUD usage</td>
+                    <td>Query pipeline, tracking, performance modeling</td>
+                </tr>
+                <tr>
+                    <td>Async/Await</td>
+                    <td>Syntax familiarity</td>
+                    <td>State machine, deadlock reasoning</td>
+                </tr>
+                <tr>
+                    <td>Distributed Systems</td>
+                    <td>Conceptual understanding</td>
+                    <td>CAP reasoning, idempotency, saga patterns</td>
+                </tr>
+                <tr>
+                    <td>Cloud Architecture</td>
+                    <td>Basic deployment</td>
+                    <td>Scaling, cost modeling, failure isolation</td>
+                </tr>
+            </table>
+
+            <h3>Behavioral Gap</h3>
+            <ul>
+                <li>Hedging decisions instead of defending them</li>
+                <li>Explaining implementation instead of trade-offs</li>
+                <li>Weak ownership framing</li>
+                <li>Surface-level reasoning under probing</li>
+            </ul>
+
+        </div>
+
+        <h2 id="roadmap">SECTION 2 — Capability Roadmap</h2>
+
+        <div class="section">
+
+            <h3>Core Technical Foundations</h3>
+            <ul>
+                <li>C# runtime internals and memory model</li>
+                <li>Garbage collector generations and LOH behavior</li>
+                <li>Async execution flow and synchronization context</li>
+                <li>Dependency injection lifetime modeling</li>
+                <li>Clean Architecture boundary enforcement</li>
+                <li>EF Core query optimization and tracking behavior</li>
+            </ul>
+
+            <h3>Distributed Systems & Messaging</h3>
+            <ul>
+                <li>Transactional Outbox pattern</li>
+                <li>Idempotent consumers</li>
+                <li>Kafka vs RabbitMQ trade-offs</li>
+                <li>Caching strategies and stampede prevention</li>
+                <li>Eventual consistency modeling</li>
+            </ul>
+
+            <h3>Cloud & Security</h3>
+            <ul>
+                <li>App Service vs Kubernetes decision matrix</li>
+                <li>Service Bus vs Event streaming trade-offs</li>
+                <li>OAuth2, OpenID Connect, token validation</li>
+                <li>Observability and distributed tracing</li>
+            </ul>
+
+        </div>
+
+        <h2 id="systemdesign">SECTION 3 — System Design Mastery</h2>
+
+        <div class="section">
+
+            <h3>Structured Design Flow</h3>
+
+            <ul>
+                <li>Ambiguity clarification</li>
+                <li>Functional and non-functional requirements</li>
+                <li>Capacity estimation</li>
+                <li>High-level architecture modeling</li>
+                <li>Failure mode analysis</li>
+            </ul>
+
+            <h3>Representative System Domains</h3>
+
+            <ul>
+                <li>URL Shortening Service</li>
+                <li>Logistics Tracking Platform</li>
+                <li>Multi-Tenant SaaS Architecture</li>
+                <li>Notification Distribution Engine</li>
+                <li>Distributed Audit Logging</li>
+            </ul>
+
+        </div>
+
+        <h2 id="behavioral">SECTION 4 — Behavioral & Leadership Development</h2>
+
+        <div class="section">
+
+            <ul>
+                <li>Context → Decision → Trade-off articulation</li>
+                <li>Explicit risk communication</li>
+                <li>Challenging unnecessary complexity</li>
+                <li>Mentoring engineers toward system thinking</li>
+                <li>Balancing technical excellence with delivery constraints</li>
+            </ul>
+
+        </div>
+
+        <h2 id="mock">SECTION 5 — Simulation & Evaluation</h2>
+
+        <div class="section">
+
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Focus</th>
+                </tr>
+                <tr>
+                    <td>Technical Accuracy</td>
+                    <td>C# internals, DI, EF Core depth</td>
+                </tr>
+                <tr>
+                    <td>System Design</td>
+                    <td>Structured reasoning and trade-offs</td>
+                </tr>
+                <tr>
+                    <td>Distributed Systems</td>
+                    <td>CAP, consistency modeling</td>
+                </tr>
+                <tr>
+                    <td>Leadership Communication</td>
+                    <td>Ownership and clarity</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <h2 id="execution">SECTION 6 — Execution Declaration</h2>
+
+        <div class="section highlight">
+            Architect maturity is demonstrated when decisions remain stable under scale,
+            pressure, and technical probing.
+
+            Depth is deliberate.
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 ﻿using Playground.Domain;
 
-namespace Playground.Collections;
+namespace Playground.Topic.Collections;
 
 public class ListExample : ExampleBase
 {

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.ComponentModel;
 
-namespace Playground.LINQ;
+namespace Playground.Topic.LINQ;
 
 public class LINQ_SetOperationIntersect : ExampleBase
 {

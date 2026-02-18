@@ -1,6 +1,7 @@
 ﻿using Playground.Domain;
-using Playground.LINQ;
-using Playground.Collections;
+using Playground.Topic.AsyncAwait;
+using Playground.Topic.Collections;
+using Playground.Topic.LINQ;
 
 namespace Playground.Application;
 
@@ -13,6 +14,8 @@ public class TopicService
         _examples = new List<IExample>
         {
             new SelectExample(),
+
+            #region LINQ
             new ListExample(),
             new LINQ_OfType(),
             new LINQ_Projection_Select(),
@@ -32,8 +35,13 @@ public class TopicService
             new LINQ_SetOperationUnion(),
             new LINQ_SetOperationIntersect(),
             new LINQ_SetOperationExcept(),
-            new LINQ_SCENARIO_BASED()
+            new LINQ_SCENARIO_BASED(),
+            #endregion
 
+            #region AsyncAwait
+            new Async_BlockingVsAwait()
+
+            #endregion
         };
     }
 

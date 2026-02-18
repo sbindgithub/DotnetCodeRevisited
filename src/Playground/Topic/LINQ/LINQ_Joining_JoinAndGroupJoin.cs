@@ -3,7 +3,7 @@ using System.Collections;
 using System.ComponentModel;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Playground.LINQ;
+namespace Playground.Topic.LINQ;
 
 public class LINQ_Joining_JoinAndGroupJoin : ExampleBase
 {
