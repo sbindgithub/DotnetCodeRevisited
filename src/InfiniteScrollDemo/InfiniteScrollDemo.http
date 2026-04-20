@@ -1,0 +1,6 @@
+@InfiniteScrollDemo_HostAddress = http://localhost:5137
+
+GET {{InfiniteScrollDemo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

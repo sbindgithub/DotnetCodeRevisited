@@ -1,9 +1,19 @@
-﻿namespace Playground.Domain;
+﻿using System.ComponentModel;
+
+namespace Playground.Domain;
 
 public enum TopicType
 {
     LINQ,
     Collections,
     Async,
-    DI
+    DI,
+    [Description("OOP Abstraction")]
+    OOP_Abstraction,
+    [Description("OOP Encapsulation")]
+    OOP_Encapsulation,
+    [Description("OOP Inheritance")]
+    OOP_Inheritance,
+    [Description("OOP Polymorphism")]
+    OOP_Polymorphism
 }

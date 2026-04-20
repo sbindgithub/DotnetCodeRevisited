@@ -11,4 +11,10 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Topic\OOP\Encapsulation\" />
+    <Folder Include="Topic\OOP\Inhertance\" />
+    <Folder Include="Topic\OOP\Polymorphism\" />
+  </ItemGroup>
+
 </Project>

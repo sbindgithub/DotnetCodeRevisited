@@ -1,5 +1,6 @@
 ﻿using Playground.Application;
 using Playground.Domain;
+using System.ComponentModel;
 
 var topicService = new TopicService();
 
@@ -14,7 +15,7 @@ while (true)
 
     for (int i = 0; i < topics.Count; i++)
     {
-        Console.WriteLine($"{i + 1}. {topics[i]}");
+        Console.WriteLine($"{i + 1}. {GetDescription(topics[i])}");
     }
 
     Console.WriteLine("0. Exit");
@@ -62,4 +63,11 @@ while (true)
 
     Console.WriteLine("\nPress any key to continue...");
     Console.ReadKey();
+}
+
+static string GetDescription(Enum value)
+{
+    var field = value.GetType().GetField(value.ToString());
+    var attr = (DescriptionAttribute)Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute));
+    return attr?.Description ?? value.ToString();
 }

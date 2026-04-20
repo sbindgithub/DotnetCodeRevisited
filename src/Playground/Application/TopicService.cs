@@ -7,7 +7,7 @@ using Playground.Topic.LINQ;
 namespace Playground.Application;
 using Playground.Topic.DependencyInjection.Lifetime;
 using Playground.Topic.DependencyInjection.Strategy;
-
+using Playground.Topic.OOP.Abstraction.Interface;
 
 public class TopicService
 {
@@ -56,6 +56,12 @@ public class TopicService
             new DI_Singleton_With_Transient(),
             new DI_Transient_vs_Scoped_vs_Singleton_Behavior(),
 
+            #endregion
+
+            #region OOP
+            
+            new OOP_Abstraction_Interface_Event(),
+            new OOP_Abstraction_Interface_Delegate()
             #endregion
         };
     }
