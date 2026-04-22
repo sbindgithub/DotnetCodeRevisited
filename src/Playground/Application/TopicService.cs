@@ -63,8 +63,9 @@ public class TopicService
             #endregion,
 
             #region OOP
-            new Func_OrderPricingEngine(),
-            new Func_OrderPricingEngineAdvanced()
+            new Func_OrderPricingEngineAdvanced(),
+            new Func_OrderPricingEngineAdvanced(),
+            new Tuple_PaymentResultExample()
 
             #endregion
         };

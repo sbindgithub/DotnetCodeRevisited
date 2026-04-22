@@ -3,9 +3,9 @@ using System.Collections;
 
 namespace Playground.Topic.Paradigms.FunctionalProgramming.LINQ;
 
-public class Func_OrderPricingEngine : ExampleBase
+public class Tuple_OrderPricingEngine : ExampleBase
 {
-    public Func_OrderPricingEngine()
+    public Tuple_OrderPricingEngine()
         : base("Func_OrderPricingEngine Example", TopicType.Paradigms_FunctionalProgramming_Func)
     {
     }
