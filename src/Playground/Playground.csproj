@@ -12,9 +12,33 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Topic\OOP\Encapsulation\" />
-    <Folder Include="Topic\OOP\Inhertance\" />
-    <Folder Include="Topic\OOP\Polymorphism\" />
+    <Folder Include="Topic\Algorithms\Recursion\" />
+    <Folder Include="Topic\Algorithms\Searching\" />
+    <Folder Include="Topic\Algorithms\Sorting\" />
+    <Folder Include="Topic\Cloud\Azure\Identity\AzureAD\" />
+    <Folder Include="Topic\Cloud\Azure\Messaging\EventGrid\" />
+    <Folder Include="Topic\Cloud\Azure\Messaging\ServiceBus\" />
+    <Folder Include="Topic\Cloud\Azure\Monitoring\ApplicationInsights\" />
+    <Folder Include="Topic\Cloud\Azure\Storage\FileStorage\" />
+    <Folder Include="Topic\Collections\" />
+    <Folder Include="Topic\Concurrency\ConcurrentCollections\ConcurrentDictionary\" />
+    <Folder Include="Topic\Concurrency\ConcurrentCollections\ConcurrentQueue\" />
+    <Folder Include="Topic\Concurrency\ConcurrentCollections\ConcurrentBag\" />
+    <Folder Include="Topic\Concurrency\Locks\" />
+    <Folder Include="Topic\Concurrency\Parallel\" />
+    <Folder Include="Topic\Concurrency\Task\" />
+    <Folder Include="Topic\DataStructures\Array\" />
+    <Folder Include="Topic\DataStructures\LinkedList\" />
+    <Folder Include="Topic\DataStructures\Queue\" />
+    <Folder Include="Topic\DataStructures\Stack\" />
+    <Folder Include="Topic\Paradigms\FunctionalProgramming\Delegates\" />
+    <Folder Include="Topic\Paradigms\FunctionalProgramming\Lambda\" />
+    <Folder Include="Topic\Paradigms\FunctionalProgramming\Immutability\" />
+    <Folder Include="Topic\Paradigms\FunctionalProgramming\Closures\" />
+    <Folder Include="Topic\Paradigms\FunctionalProgramming\HigherOrderFunctions\" />
+    <Folder Include="Topic\Paradigms\OOP\Encapsulation\" />
+    <Folder Include="Topic\Paradigms\OOP\Inhertance\" />
+    <Folder Include="Topic\Paradigms\OOP\Polymorphism\" />
   </ItemGroup>
 
 </Project>

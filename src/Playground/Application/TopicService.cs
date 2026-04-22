@@ -1,13 +1,11 @@
 ﻿using Playground.Domain;
-using Playground.Topic.AsyncAwait;
-using Playground.Topic.Collections;
-using Playground.Topic.DependencyInjection;
-using Playground.Topic.LINQ;
+using Playground.Topic.Paradigms.FunctionalProgramming.LINQ;
+using Playground.Topic.DataStructures.List;
+using Playground.Topic.Concurrency.AsyncAwait;
+using Playground.Topic.Architecture.DI;
+using Playground.Topic.Paradigms.OOP.Abstraction.Interface;
 
 namespace Playground.Application;
-using Playground.Topic.DependencyInjection.Lifetime;
-using Playground.Topic.DependencyInjection.Strategy;
-using Playground.Topic.OOP.Abstraction.Interface;
 
 public class TopicService
 {
@@ -61,7 +59,13 @@ public class TopicService
             #region OOP
             
             new OOP_Abstraction_Interface_Event(),
-            new OOP_Abstraction_Interface_Delegate()
+            new OOP_Abstraction_Interface_Delegate(),
+            #endregion,
+
+            #region OOP
+            new Func_OrderPricingEngine(),
+            new Func_OrderPricingEngineAdvanced()
+
             #endregion
         };
     }

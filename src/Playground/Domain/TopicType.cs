@@ -15,5 +15,7 @@ public enum TopicType
     [Description("OOP Inheritance")]
     OOP_Inheritance,
     [Description("OOP Polymorphism")]
-    OOP_Polymorphism
+    OOP_Polymorphism,
+    [Description("Functional Programming - Func")]
+    Paradigms_FunctionalProgramming_Func,
 }
