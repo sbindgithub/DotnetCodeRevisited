@@ -8,7 +8,7 @@ namespace Playground.Topic.Concurrency.ParallelProgramming.TaskParallelism;
 public class TaskParallelismBasic_OrderProcessing : ExampleBase
 {
     public TaskParallelismBasic_OrderProcessing()
-        : base("TaskParallelismBasic_OrderProcessing Example", TopicType.TaskParallelismBasic)
+        : base("Task Parallelism Basic - Order Processing", TopicType.TaskParallelismBasic)
     {
     }
     private volatile bool _flag = false;

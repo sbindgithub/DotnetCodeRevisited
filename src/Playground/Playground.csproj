@@ -8,14 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Topic\Collections\**" />
     <Compile Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <Compile Remove="Topic\Concurrency\Locks\**" />
     <Compile Remove="Topic\Concurrency\Parallel\**" />
     <Compile Remove="Topic\Concurrency\Task\**" />
+    <EmbeddedResource Remove="Topic\Collections\**" />
     <EmbeddedResource Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <EmbeddedResource Remove="Topic\Concurrency\Locks\**" />
     <EmbeddedResource Remove="Topic\Concurrency\Parallel\**" />
     <EmbeddedResource Remove="Topic\Concurrency\Task\**" />
+    <None Remove="Topic\Collections\**" />
     <None Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <None Remove="Topic\Concurrency\Locks\**" />
     <None Remove="Topic\Concurrency\Parallel\**" />
@@ -30,24 +33,56 @@
     <Folder Include="Topic\Algorithms\Recursion\" />
     <Folder Include="Topic\Algorithms\Searching\" />
     <Folder Include="Topic\Algorithms\Sorting\" />
+    <Folder Include="Topic\Architecture\CI-CD\Pipelines\AzureDevOps\" />
+    <Folder Include="Topic\Architecture\CI-CD\Pipelines\GitHubActions\" />
+    <Folder Include="Topic\Architecture\CI-CD\Steps\Build\" />
+    <Folder Include="Topic\Architecture\CI-CD\Steps\CodeQuality\" />
+    <Folder Include="Topic\Architecture\CI-CD\Steps\Deploy\" />
+    <Folder Include="Topic\Architecture\CI-CD\Steps\Package\" />
+    <Folder Include="Topic\Architecture\CI-CD\Steps\Test\" />
+    <Folder Include="Topic\Architecture\DesignPatterns\" />
+    <Folder Include="Topic\Architecture\CleanArchitecture\" />
+    <Folder Include="Topic\Architecture\SOLID\" />
     <Folder Include="Topic\Cloud\Azure\Identity\AzureAD\" />
     <Folder Include="Topic\Cloud\Azure\Messaging\EventGrid\" />
     <Folder Include="Topic\Cloud\Azure\Messaging\ServiceBus\" />
     <Folder Include="Topic\Cloud\Azure\Monitoring\ApplicationInsights\" />
     <Folder Include="Topic\Cloud\Azure\Storage\FileStorage\" />
-    <Folder Include="Topic\Collections\" />
+    <Folder Include="Topic\DataAccess\EFCore\" />
+    <Folder Include="Topic\DataAccess\Dapper\" />
+    <Folder Include="Topic\DataAccess\IndexingConcepts\" />
+    <Folder Include="Topic\DataAccess\Transactions\" />
     <Folder Include="Topic\DataStructures\Array\" />
     <Folder Include="Topic\DataStructures\LinkedList\" />
+    <Folder Include="Topic\DataStructures\Collections\" />
     <Folder Include="Topic\DataStructures\Queue\" />
     <Folder Include="Topic\DataStructures\Stack\" />
+    <Folder Include="Topic\Observability\Logging\" />
+    <Folder Include="Topic\Observability\CorrelationId\" />
+    <Folder Include="Topic\Observability\StructuredLogging\" />
     <Folder Include="Topic\Paradigms\FunctionalProgramming\Delegates\" />
     <Folder Include="Topic\Paradigms\FunctionalProgramming\Lambda\" />
     <Folder Include="Topic\Paradigms\FunctionalProgramming\Immutability\" />
     <Folder Include="Topic\Paradigms\FunctionalProgramming\Closures\" />
     <Folder Include="Topic\Paradigms\FunctionalProgramming\HigherOrderFunctions\" />
+    <Folder Include="Topic\Paradigms\FunctionalProgramming\Composition\" />
+    <Folder Include="Topic\Paradigms\FunctionalProgramming\Pipelines\" />
     <Folder Include="Topic\Paradigms\OOP\Encapsulation\" />
     <Folder Include="Topic\Paradigms\OOP\Inhertance\" />
     <Folder Include="Topic\Paradigms\OOP\Polymorphism\" />
+    <Folder Include="Topic\Performance\Caching\InMemoryCache\" />
+    <Folder Include="Topic\Performance\Caching\DistributedCache\" />
+    <Folder Include="Topic\Resilience\CircuitBreaker\" />
+    <Folder Include="Topic\Resilience\Fallback\" />
+    <Folder Include="Topic\Resilience\TimeoutHandling\" />
+    <Folder Include="Topic\Resilience\RetryPattern\" />
+    <Folder Include="Topic\Testing\Mocking\" />
+    <Folder Include="Topic\Testing\IntegrationTesting\" />
+    <Folder Include="Topic\Testing\UnitTesting\" />
+    <Folder Include="Topic\Web\Middleware\" />
+    <Folder Include="Topic\Web\Filters\" />
+    <Folder Include="Topic\Web\ModelBinding\" />
+    <Folder Include="Topic\Web\WebAPI\" />
   </ItemGroup>
 
 </Project>
