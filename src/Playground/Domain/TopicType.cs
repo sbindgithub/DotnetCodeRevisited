@@ -51,6 +51,9 @@ public enum TopicType
     [Description("Deadlock Example")]
     DeadlockExample,
     [Description("Race Condition Example")]
-    RaceConditionExample
+    RaceConditionExample,
+    [Description("No Deadlock Example - Fail Safe")]
+    NoDeadlockExample_FailSafe
+
 
 }

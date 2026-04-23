@@ -4,8 +4,6 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
 
-namespace Playground.Topic.Paradigms.FunctionalProgramming.LINQ;
-
 public class RaceConditionExample : ExampleBase
 {
     public RaceConditionExample()

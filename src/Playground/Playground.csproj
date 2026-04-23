@@ -33,8 +33,6 @@
     <Folder Include="Topic\Algorithms\Recursion\" />
     <Folder Include="Topic\Algorithms\Searching\" />
     <Folder Include="Topic\Algorithms\Sorting\" />
-    <Folder Include="Topic\Architecture\CI-CD\Pipelines\AzureDevOps\" />
-    <Folder Include="Topic\Architecture\CI-CD\Pipelines\GitHubActions\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\Build\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\CodeQuality\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\Deploy\" />

@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 
-namespace Playground.Topic.Paradigms.FunctionalProgramming.LINQ;
-
 public class DeadlockExample : ExampleBase
 {
     public DeadlockExample()
