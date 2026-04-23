@@ -40,6 +40,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfiniteScrollDemo", "src\I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Tests", "Playground.Tests\Playground.Tests.csproj", "{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{343BBAEC-6EAA-4551-9180-699C4185AEBD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{103B69B8-B8AE-49AA-9C2B-D00AC8EE3BDF}"
+	ProjectSection(SolutionItems) = preProject
+		ci.yml = ci.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +118,8 @@ Global
 		{78A1009A-5D3E-5A80-D2E5-1699442AEB37} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{CBE17FA8-463D-44EA-B854-579C79BEB99C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{C2B96349-7A96-4B79-80C9-35E7AA5C8412} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{103B69B8-B8AE-49AA-9C2B-D00AC8EE3BDF} = {343BBAEC-6EAA-4551-9180-699C4185AEBD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83E15828-9AED-4662-B0D2-989EAB6F87CA}
