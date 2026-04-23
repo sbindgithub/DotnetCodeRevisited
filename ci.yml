@@ -9,11 +9,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: echo "Pipeline working"
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
+
 
       - run: dotnet restore src/Playground/Playground.csproj
       - run: dotnet build src/Playground/Playground.csproj --no-restore
