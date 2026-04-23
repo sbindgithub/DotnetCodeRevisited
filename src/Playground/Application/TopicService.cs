@@ -5,6 +5,8 @@ using Playground.Topic.Concurrency.AsyncAwait;
 using Playground.Topic.Architecture.DI;
 using Playground.Topic.Paradigms.OOP.Abstraction.Interface;
 
+
+
 namespace Playground.Application;
 
 public class TopicService
@@ -16,29 +18,6 @@ public class TopicService
         _examples = new List<IExample>
         {
             new SelectExample(),
-
-            #region LINQ
-            new ListExample(),
-            new LINQ_OfType(),
-            new LINQ_Projection_Select(),
-            new LINQ_Projection_SelectMany(),
-            new LINQ_Quantifier_Any(),
-            new LINQ_Quantifier_All(),
-            new LINQ_Quantifier_Contains(),
-            new LINQ_FirstOrDefault(),
-            new LINQ_Element_Operator_FirstOrDefault(),
-            new LINQ_Element_Operator_LastTakeSkip(),
-            new LINQ_Element_Operator_Single(),
-            new LINQ_Element_Operator_SingleOrDefault(),
-            new LINQ_Ordering_OrderByThenByDescending(),
-            new LINQ_Grouping_GroupBy(),
-            new LINQ_Joining_JoinAndGroupJoin(),
-            new LINQ_SetOperationDistinct(),
-            new LINQ_SetOperationUnion(),
-            new LINQ_SetOperationIntersect(),
-            new LINQ_SetOperationExcept(),
-            new LINQ_SCENARIO_BASED(),
-            #endregion
 
             #region AsyncAwait
             new Async_BlockingVsAwait(),
@@ -65,9 +44,50 @@ public class TopicService
             #region OOP
             new Func_OrderPricingEngineAdvanced(),
             new Func_OrderPricingEngineAdvanced(),
-            new Tuple_PaymentResultExample()
+            new Tuple_PaymentResultExample(),
 
             #endregion
+
+            #region // Concurrency
+            //new ParallelP_OrderProcessing()
+            #endregion
+
+            #region // Data Structures
+            //new ListExample()
+            #endregion
+
+            #region // Paradigms
+            new LINQ_OfType(),
+            new LINQ_Projection_Select(),
+            new LINQ_Projection_SelectMany(),
+            new LINQ_Quantifier_Any(),
+            new LINQ_Quantifier_All(),
+            new LINQ_Quantifier_Contains(),
+            new LINQ_FirstOrDefault(),
+            new LINQ_Element_Operator_FirstOrDefault(),
+            new LINQ_Element_Operator_LastTakeSkip(),
+            new LINQ_Element_Operator_Single(),
+            new LINQ_Element_Operator_SingleOrDefault(),
+            new LINQ_Ordering_OrderByThenByDescending(),
+            new LINQ_Grouping_GroupBy(),
+            new LINQ_Joining_JoinAndGroupJoin(),
+            new LINQ_SetOperationDistinct(),
+            new LINQ_SetOperationUnion(),
+            new LINQ_SetOperationIntersect(),
+            new LINQ_SetOperationExcept(),
+            new LINQ_SCENARIO_BASED(),
+
+            //new Tuple_OrderPricingEngineExample(),
+
+            #endregion
+
+            #region OOP_Abstraction
+            new OOP_Abstraction_Interface_Event(),
+            new OOP_Abstraction_Interface_Delegate(),
+#endregion
+
+
+
         };
     }
 

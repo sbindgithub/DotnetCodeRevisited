@@ -8,6 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Topic\Concurrency\ConcurrentCollections\**" />
+    <Compile Remove="Topic\Concurrency\Locks\**" />
+    <Compile Remove="Topic\Concurrency\Parallel\**" />
+    <Compile Remove="Topic\Concurrency\Task\**" />
+    <EmbeddedResource Remove="Topic\Concurrency\ConcurrentCollections\**" />
+    <EmbeddedResource Remove="Topic\Concurrency\Locks\**" />
+    <EmbeddedResource Remove="Topic\Concurrency\Parallel\**" />
+    <EmbeddedResource Remove="Topic\Concurrency\Task\**" />
+    <None Remove="Topic\Concurrency\ConcurrentCollections\**" />
+    <None Remove="Topic\Concurrency\Locks\**" />
+    <None Remove="Topic\Concurrency\Parallel\**" />
+    <None Remove="Topic\Concurrency\Task\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
 
@@ -21,12 +36,6 @@
     <Folder Include="Topic\Cloud\Azure\Monitoring\ApplicationInsights\" />
     <Folder Include="Topic\Cloud\Azure\Storage\FileStorage\" />
     <Folder Include="Topic\Collections\" />
-    <Folder Include="Topic\Concurrency\ConcurrentCollections\ConcurrentDictionary\" />
-    <Folder Include="Topic\Concurrency\ConcurrentCollections\ConcurrentQueue\" />
-    <Folder Include="Topic\Concurrency\ConcurrentCollections\ConcurrentBag\" />
-    <Folder Include="Topic\Concurrency\Locks\" />
-    <Folder Include="Topic\Concurrency\Parallel\" />
-    <Folder Include="Topic\Concurrency\Task\" />
     <Folder Include="Topic\DataStructures\Array\" />
     <Folder Include="Topic\DataStructures\LinkedList\" />
     <Folder Include="Topic\DataStructures\Queue\" />

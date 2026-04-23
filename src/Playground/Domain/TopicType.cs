@@ -23,5 +23,34 @@ public enum TopicType
     [Description("Functional Programming - Func Order Pricing Engine Advanced")]
     Func_OrderPricingEngineAdvanced,
     [Description("Functional Programming - Tuple")]
-    Paradigms_FunctionalProgramming_Tuple
+    Paradigms_FunctionalProgramming_Tuple,
+    [Description("Data Parallel Programming - Order Processing")]
+    DataParallelism_OrderProcessing,
+    [Description("Task Parallelism Basic - Order Processing")]
+    TaskParallelismBasic,
+    [Description("Task Parallelism Advanced Async - Order Processing")]
+    TaskParallelismAdvancedAsync,
+    [Description("Lock Example")]
+    LockExample,
+    [Description("Monitor Example")]
+    MonitorExample,
+    [Description("Interlocked Example")]
+    InterlockedExample,
+    [Description("Volatile Example")]
+    VolatileExample,
+    [Description("ConcurrentBag Example")]
+    ConcurrentBagExample,
+    [Description("ConcurrentDictionary Example")]
+    ConcurrentDictionaryExample,
+    [Description("ConcurrentQueue Example")]
+    ConcurrentQueueExample,
+    [Description("Producer-Consumer Queue Example")]
+    ProducerConsumer_Queue,
+    [Description("Read-Write Scenario")]
+    ReadWriteScenario,
+    [Description("Deadlock Example")]
+    DeadlockExample,
+    [Description("Race Condition Example")]
+    RaceConditionExample
+
 }
