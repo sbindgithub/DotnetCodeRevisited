@@ -74,6 +74,13 @@
     <Folder Include="Topic\Resilience\Fallback\" />
     <Folder Include="Topic\Resilience\TimeoutHandling\" />
     <Folder Include="Topic\Resilience\RetryPattern\" />
+    <Folder Include="Topic\Runtime\MemoryManagement\SpanMemory\" />
+    <Folder Include="Topic\Runtime\MemoryManagement\ValueVsReference\" />
+    <Folder Include="Topic\Runtime\MemoryManagement\StackVsHeap\" />
+    <Folder Include="Topic\Runtime\CLRBasics\" />
+    <Folder Include="Topic\Runtime\JIT\" />
+    <Folder Include="Topic\Runtime\IL\" />
+    <Folder Include="Topic\Runtime\ThreadingModel\" />
     <Folder Include="Topic\Testing\Mocking\" />
     <Folder Include="Topic\Testing\IntegrationTesting\" />
     <Folder Include="Topic\Testing\UnitTesting\" />
