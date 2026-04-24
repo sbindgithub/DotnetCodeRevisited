@@ -32,6 +32,32 @@ public class MonitorExample : ExampleBase
 
         Console.WriteLine($"Final Count (Monitor): {_counter}");
 
+        //Monitor.TryEnter
+
+        //Parallel.For(0, 10000, i =>
+        //{
+        //    bool lockTaken = false;
+        //    try
+        //    {
+        //        // wait up to 10 ms to acquire the lock
+        //        if (Monitor.TryEnter(_lock, TimeSpan.FromMilliseconds(10), ref lockTaken))
+        //        {
+        //            _counter++;
+        //        }
+        //        else
+        //        {
+        //            // optional: track skipped attempts or apply fallback logic
+        //            // e.g., Interlocked.Increment(ref _skipped);
+        //        }
+        //    }
+        //    finally
+        //    {
+        //        if (lockTaken)
+        //            Monitor.Exit(_lock);
+        //    }
+        //});
+
+        //Console.WriteLine($"Final Count (TryEnter with timeout): {_counter}");
     }
 
   
