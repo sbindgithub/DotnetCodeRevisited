@@ -30,6 +30,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Topic\AI\Projects\DocChatbot\Core\Interfaces\" />
+    <Folder Include="Topic\AI\Projects\DocChatbot\Core\Services\" />
+    <Folder Include="Topic\AI\Projects\DocChatbot\Infrastructure\" />
+    <Folder Include="Topic\AI\Projects\DocChatbot\Prompts\" />
+    <Folder Include="Topic\AI\System design\" />
+    <Folder Include="Topic\AI\Evaluation\" />
+    <Folder Include="Topic\AI\Projects\LogAnalyzerAI\" />
+    <Folder Include="Topic\AI\Projects\ResumeAnalyzer\" />
+    <Folder Include="Topic\AI\RAG architecture\" />
+    <Folder Include="Topic\AI\Prompt engineering\" />
     <Folder Include="Topic\Algorithms\Recursion\" />
     <Folder Include="Topic\Algorithms\Searching\" />
     <Folder Include="Topic\Algorithms\Sorting\" />
