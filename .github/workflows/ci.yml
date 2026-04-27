@@ -1,8 +1,17 @@
 name: .NET CI
 
 on:
+
+# Trigger the workflow on push or pull request events to the main and develop branches
   push:
-    branches: [ main, develop ]
+    branches:
+       - main
+       - feature/**
+
+
+  pull_request:
+    branches: 
+       - main
 
 jobs:
   build:
