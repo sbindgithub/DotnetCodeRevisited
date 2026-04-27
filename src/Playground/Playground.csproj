@@ -34,6 +34,7 @@
     <Folder Include="Topic\AI\Projects\DocChatbot\Core\Services\" />
     <Folder Include="Topic\AI\Projects\DocChatbot\Infrastructure\" />
     <Folder Include="Topic\AI\Projects\DocChatbot\Prompts\" />
+    <Folder Include="Topic\AI\Projects\Enterprise Document Processing System with GenAI\" />
     <Folder Include="Topic\AI\System design\" />
     <Folder Include="Topic\AI\Evaluation\" />
     <Folder Include="Topic\AI\Projects\LogAnalyzerAI\" />
