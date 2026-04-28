@@ -67,8 +67,8 @@
     <Folder Include="Topic\DataStructures\Collections\" />
     <Folder Include="Topic\DataStructures\Queue\" />
     <Folder Include="Topic\DataStructures\Stack\" />
-    <Folder Include="Topic\Observability\Logging\" />
     <Folder Include="Topic\Observability\CorrelationId\" />
+    <Folder Include="Topic\Observability\Logging\Serilog\" />
     <Folder Include="Topic\Observability\StructuredLogging\" />
     <Folder Include="Topic\Paradigms\FunctionalProgramming\Delegates\" />
     <Folder Include="Topic\Paradigms\FunctionalProgramming\Lambda\" />
