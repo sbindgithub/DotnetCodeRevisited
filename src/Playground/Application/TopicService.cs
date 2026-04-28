@@ -1,10 +1,9 @@
 ﻿using Playground.Domain;
-using Playground.Topic.Paradigms.FunctionalProgramming.LINQ;
-using Playground.Topic.DataStructures.List;
-using Playground.Topic.Concurrency.AsyncAwait;
 using Playground.Topic.Architecture.DI;
+using Playground.Topic.Concurrency.AsyncAwait;
+using Playground.Topic.DataStructures.List;
+using Playground.Topic.Paradigms.FunctionalProgramming.LINQ;
 using Playground.Topic.Paradigms.OOP.Abstraction.Interface;
-
 
 
 namespace Playground.Application;
@@ -84,8 +83,12 @@ public class TopicService
             #region OOP_Abstraction
             new OOP_Abstraction_Interface_Event(),
             new OOP_Abstraction_Interface_Delegate(),
-#endregion
+            #endregion
 
+            #region Performance_Caching_DistributedCache_Redis
+            
+
+            #endregion
 
 
         };

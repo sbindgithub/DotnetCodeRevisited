@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Assets\" />
     <Folder Include="Topic\AI\Projects\DocChatbot\Core\Interfaces\" />
     <Folder Include="Topic\AI\Projects\DocChatbot\Core\Services\" />
     <Folder Include="Topic\AI\Projects\DocChatbot\Infrastructure\" />
@@ -80,7 +81,6 @@
     <Folder Include="Topic\Paradigms\OOP\Inhertance\" />
     <Folder Include="Topic\Paradigms\OOP\Polymorphism\" />
     <Folder Include="Topic\Performance\Caching\InMemoryCache\" />
-    <Folder Include="Topic\Performance\Caching\DistributedCache\" />
     <Folder Include="Topic\Resilience\CircuitBreaker\" />
     <Folder Include="Topic\Resilience\Fallback\" />
     <Folder Include="Topic\Resilience\TimeoutHandling\" />
