@@ -26,6 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Topic\DataAccess\Pagination\CSharpPaginationExample.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
 
@@ -99,6 +103,10 @@
     <Folder Include="Topic\Web\Filters\" />
     <Folder Include="Topic\Web\ModelBinding\" />
     <Folder Include="Topic\Web\WebAPI\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Topic\DataAccess\Pagination\CSharpPaginationExample.cs" />
   </ItemGroup>
 
 </Project>
