@@ -13,20 +13,31 @@
     <Compile Remove="Topic\Concurrency\Locks\**" />
     <Compile Remove="Topic\Concurrency\Parallel\**" />
     <Compile Remove="Topic\Concurrency\Task\**" />
+    <Compile Remove="Topic\DataAccess\Dapper\**" />
+    <Compile Remove="Topic\DataAccess\EFCore\**" />
+    <Compile Remove="Topic\DataAccess\IndexingConcepts\**" />
+    <Compile Remove="Topic\DataAccess\Pagination\**" />
+    <Compile Remove="Topic\DataAccess\Transactions\**" />
     <EmbeddedResource Remove="Topic\Collections\**" />
     <EmbeddedResource Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <EmbeddedResource Remove="Topic\Concurrency\Locks\**" />
     <EmbeddedResource Remove="Topic\Concurrency\Parallel\**" />
     <EmbeddedResource Remove="Topic\Concurrency\Task\**" />
+    <EmbeddedResource Remove="Topic\DataAccess\Dapper\**" />
+    <EmbeddedResource Remove="Topic\DataAccess\EFCore\**" />
+    <EmbeddedResource Remove="Topic\DataAccess\IndexingConcepts\**" />
+    <EmbeddedResource Remove="Topic\DataAccess\Pagination\**" />
+    <EmbeddedResource Remove="Topic\DataAccess\Transactions\**" />
     <None Remove="Topic\Collections\**" />
     <None Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <None Remove="Topic\Concurrency\Locks\**" />
     <None Remove="Topic\Concurrency\Parallel\**" />
     <None Remove="Topic\Concurrency\Task\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Topic\DataAccess\Pagination\CSharpPaginationExample.cs" />
+    <None Remove="Topic\DataAccess\Dapper\**" />
+    <None Remove="Topic\DataAccess\EFCore\**" />
+    <None Remove="Topic\DataAccess\IndexingConcepts\**" />
+    <None Remove="Topic\DataAccess\Pagination\**" />
+    <None Remove="Topic\DataAccess\Transactions\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,10 +73,6 @@
     <Folder Include="Topic\Cloud\Azure\Messaging\ServiceBus\" />
     <Folder Include="Topic\Cloud\Azure\Monitoring\ApplicationInsights\" />
     <Folder Include="Topic\Cloud\Azure\Storage\FileStorage\" />
-    <Folder Include="Topic\DataAccess\EFCore\" />
-    <Folder Include="Topic\DataAccess\Dapper\" />
-    <Folder Include="Topic\DataAccess\IndexingConcepts\" />
-    <Folder Include="Topic\DataAccess\Transactions\" />
     <Folder Include="Topic\DataStructures\Array\" />
     <Folder Include="Topic\DataStructures\LinkedList\" />
     <Folder Include="Topic\DataStructures\Collections\" />
@@ -103,10 +110,6 @@
     <Folder Include="Topic\Web\Filters\" />
     <Folder Include="Topic\Web\ModelBinding\" />
     <Folder Include="Topic\Web\WebAPI\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Topic\DataAccess\Pagination\CSharpPaginationExample.cs" />
   </ItemGroup>
 
 </Project>
