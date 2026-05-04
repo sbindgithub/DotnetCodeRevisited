@@ -7,6 +7,13 @@ SELECT * FROM Products
 ORDER BY Id
 OFFSET @PageSize * (@PageNumber - 1) ROWS
 FETCH NEXT @PageSize ROWS ONLY
+
+Example:
+-------
+SELECT * FROM SalesLT.Customer
+ORDER BY CustomerID
+OFFSET 5 ROWS
+FETCH NEXT 5 ROWS ONLY
 ```
 
 ## Pros

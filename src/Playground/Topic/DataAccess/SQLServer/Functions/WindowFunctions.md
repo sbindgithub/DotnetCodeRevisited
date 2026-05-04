@@ -1,0 +1,1 @@
+﻿Aggregate functions (e.g., SUM, AVG) collapse rows using GROUP BY to return one summary row per group, whereas window functions perform calculations across a set of table rows (OVER clause) while retaining individual row details. Window functions (e.g., ROW_NUMBER, RANK, LEAD) enable advanced analytics like running totals or ranking without reducing row count.
