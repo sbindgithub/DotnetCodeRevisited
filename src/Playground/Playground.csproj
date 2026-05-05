@@ -11,10 +11,6 @@
     <Compile Remove="Topic\Algorithms\Recursion\**" />
     <Compile Remove="Topic\Algorithms\Searching\**" />
     <Compile Remove="Topic\Algorithms\Sorting\**" />
-    <Compile Remove="Topic\Cloud\Azure\Identity\**" />
-    <Compile Remove="Topic\Cloud\Azure\Messaging\**" />
-    <Compile Remove="Topic\Cloud\Azure\Monitoring\**" />
-    <Compile Remove="Topic\Cloud\Azure\Storage\**" />
     <Compile Remove="Topic\Collections\**" />
     <Compile Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <Compile Remove="Topic\Concurrency\Locks\**" />
@@ -28,10 +24,6 @@
     <EmbeddedResource Remove="Topic\Algorithms\Recursion\**" />
     <EmbeddedResource Remove="Topic\Algorithms\Searching\**" />
     <EmbeddedResource Remove="Topic\Algorithms\Sorting\**" />
-    <EmbeddedResource Remove="Topic\Cloud\Azure\Identity\**" />
-    <EmbeddedResource Remove="Topic\Cloud\Azure\Messaging\**" />
-    <EmbeddedResource Remove="Topic\Cloud\Azure\Monitoring\**" />
-    <EmbeddedResource Remove="Topic\Cloud\Azure\Storage\**" />
     <EmbeddedResource Remove="Topic\Collections\**" />
     <EmbeddedResource Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <EmbeddedResource Remove="Topic\Concurrency\Locks\**" />
@@ -45,10 +37,6 @@
     <None Remove="Topic\Algorithms\Recursion\**" />
     <None Remove="Topic\Algorithms\Searching\**" />
     <None Remove="Topic\Algorithms\Sorting\**" />
-    <None Remove="Topic\Cloud\Azure\Identity\**" />
-    <None Remove="Topic\Cloud\Azure\Messaging\**" />
-    <None Remove="Topic\Cloud\Azure\Monitoring\**" />
-    <None Remove="Topic\Cloud\Azure\Storage\**" />
     <None Remove="Topic\Collections\**" />
     <None Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <None Remove="Topic\Concurrency\Locks\**" />
@@ -70,7 +58,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\" />
     <Folder Include="Topic\AI\Projects\DocChatbot\Core\Interfaces\" />
     <Folder Include="Topic\AI\Projects\DocChatbot\Core\Services\" />
     <Folder Include="Topic\AI\Projects\DocChatbot\Infrastructure\" />
