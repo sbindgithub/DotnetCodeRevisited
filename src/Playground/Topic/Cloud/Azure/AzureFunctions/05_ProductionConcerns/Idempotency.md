@@ -1,0 +1,2 @@
+# Idempotency 
+Prevent duplicate processing 
