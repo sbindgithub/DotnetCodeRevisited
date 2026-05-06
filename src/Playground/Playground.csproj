@@ -21,6 +21,10 @@
     <Compile Remove="Topic\DataAccess\IndexingConcepts\**" />
     <Compile Remove="Topic\DataAccess\Pagination\**" />
     <Compile Remove="Topic\DataAccess\Transactions\**" />
+    <Compile Remove="Topic\Web\Filters\**" />
+    <Compile Remove="Topic\Web\Middleware\**" />
+    <Compile Remove="Topic\Web\ModelBinding\**" />
+    <Compile Remove="Topic\Web\WebAPI\**" />
     <EmbeddedResource Remove="Topic\Algorithms\Recursion\**" />
     <EmbeddedResource Remove="Topic\Algorithms\Searching\**" />
     <EmbeddedResource Remove="Topic\Algorithms\Sorting\**" />
@@ -34,6 +38,10 @@
     <EmbeddedResource Remove="Topic\DataAccess\IndexingConcepts\**" />
     <EmbeddedResource Remove="Topic\DataAccess\Pagination\**" />
     <EmbeddedResource Remove="Topic\DataAccess\Transactions\**" />
+    <EmbeddedResource Remove="Topic\Web\Filters\**" />
+    <EmbeddedResource Remove="Topic\Web\Middleware\**" />
+    <EmbeddedResource Remove="Topic\Web\ModelBinding\**" />
+    <EmbeddedResource Remove="Topic\Web\WebAPI\**" />
     <None Remove="Topic\Algorithms\Recursion\**" />
     <None Remove="Topic\Algorithms\Searching\**" />
     <None Remove="Topic\Algorithms\Sorting\**" />
@@ -47,6 +55,10 @@
     <None Remove="Topic\DataAccess\IndexingConcepts\**" />
     <None Remove="Topic\DataAccess\Pagination\**" />
     <None Remove="Topic\DataAccess\Transactions\**" />
+    <None Remove="Topic\Web\Filters\**" />
+    <None Remove="Topic\Web\Middleware\**" />
+    <None Remove="Topic\Web\ModelBinding\**" />
+    <None Remove="Topic\Web\WebAPI\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -77,6 +89,9 @@
     <Folder Include="Topic\Architecture\DesignPatterns\" />
     <Folder Include="Topic\Architecture\CleanArchitecture\" />
     <Folder Include="Topic\Architecture\SOLID\" />
+    <Folder Include="Topic\Cloud\Containers\Kubernetes\" />
+    <Folder Include="Topic\Cloud\Containers\DockerCompose\" />
+    <Folder Include="Topic\Cloud\Serverless\" />
     <Folder Include="Topic\DataStructures\Array\" />
     <Folder Include="Topic\DataStructures\LinkedList\" />
     <Folder Include="Topic\DataStructures\Collections\" />
@@ -100,20 +115,24 @@
     <Folder Include="Topic\Resilience\Fallback\" />
     <Folder Include="Topic\Resilience\TimeoutHandling\" />
     <Folder Include="Topic\Resilience\RetryPattern\" />
-    <Folder Include="Topic\Runtime\MemoryManagement\SpanMemory\" />
-    <Folder Include="Topic\Runtime\MemoryManagement\ValueVsReference\" />
-    <Folder Include="Topic\Runtime\MemoryManagement\StackVsHeap\" />
-    <Folder Include="Topic\Runtime\CLRBasics\" />
-    <Folder Include="Topic\Runtime\JIT\" />
-    <Folder Include="Topic\Runtime\IL\" />
-    <Folder Include="Topic\Runtime\ThreadingModel\" />
+    <Folder Include="Topic\Dotnet\Runtime\MemoryManagement\SpanMemory\" />
+    <Folder Include="Topic\Dotnet\Runtime\MemoryManagement\ValueVsReference\" />
+    <Folder Include="Topic\Dotnet\Runtime\MemoryManagement\StackVsHeap\" />
+    <Folder Include="Topic\Dotnet\Runtime\CLR\" />
+    <Folder Include="Topic\Dotnet\Runtime\JIT\" />
+    <Folder Include="Topic\Dotnet\Runtime\IL\" />
+    <Folder Include="Topic\Dotnet\Runtime\CLRCore\" />
+    <Folder Include="Topic\Dotnet\Runtime\GC\" />
+    <Folder Include="Topic\Dotnet\Runtime\ThreadingModel\" />
     <Folder Include="Topic\Testing\Mocking\" />
     <Folder Include="Topic\Testing\IntegrationTesting\" />
     <Folder Include="Topic\Testing\UnitTesting\" />
-    <Folder Include="Topic\Web\Middleware\" />
-    <Folder Include="Topic\Web\Filters\" />
-    <Folder Include="Topic\Web\ModelBinding\" />
-    <Folder Include="Topic\Web\WebAPI\" />
+    <Folder Include="Topic\Tooling\CLI\" />
+    <Folder Include="Topic\Tooling\MSBuild\" />
+    <Folder Include="Topic\Tooling\Templates\" />
+    <Folder Include="Topic\Tooling\NuGet\" />
+    <Folder Include="Topic\Tooling\SDK\" />
+    <Folder Include="Topic\Web\ASPNETCore\Security\" />
   </ItemGroup>
 
 </Project>
