@@ -124,6 +124,7 @@
     <Folder Include="Topic\Dotnet\Runtime\CLRCore\" />
     <Folder Include="Topic\Dotnet\Runtime\GC\" />
     <Folder Include="Topic\Dotnet\Runtime\ThreadingModel\" />
+    <Folder Include="Topic\ProfessionalBrandingSystem\Linkedin\" />
     <Folder Include="Topic\Testing\Mocking\" />
     <Folder Include="Topic\Testing\IntegrationTesting\" />
     <Folder Include="Topic\Testing\UnitTesting\" />
