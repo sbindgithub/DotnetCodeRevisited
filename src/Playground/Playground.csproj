@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Topic\AI\Evaluation\**" />
+    <Compile Remove="Topic\AI\Projects\**" />
+    <Compile Remove="Topic\AI\Prompt engineering\**" />
+    <Compile Remove="Topic\AI\RAG architecture\**" />
+    <Compile Remove="Topic\AI\System design\**" />
     <Compile Remove="Topic\Algorithms\Recursion\**" />
     <Compile Remove="Topic\Algorithms\Searching\**" />
     <Compile Remove="Topic\Algorithms\Sorting\**" />
@@ -25,6 +30,11 @@
     <Compile Remove="Topic\Web\Middleware\**" />
     <Compile Remove="Topic\Web\ModelBinding\**" />
     <Compile Remove="Topic\Web\WebAPI\**" />
+    <EmbeddedResource Remove="Topic\AI\Evaluation\**" />
+    <EmbeddedResource Remove="Topic\AI\Projects\**" />
+    <EmbeddedResource Remove="Topic\AI\Prompt engineering\**" />
+    <EmbeddedResource Remove="Topic\AI\RAG architecture\**" />
+    <EmbeddedResource Remove="Topic\AI\System design\**" />
     <EmbeddedResource Remove="Topic\Algorithms\Recursion\**" />
     <EmbeddedResource Remove="Topic\Algorithms\Searching\**" />
     <EmbeddedResource Remove="Topic\Algorithms\Sorting\**" />
@@ -42,6 +52,11 @@
     <EmbeddedResource Remove="Topic\Web\Middleware\**" />
     <EmbeddedResource Remove="Topic\Web\ModelBinding\**" />
     <EmbeddedResource Remove="Topic\Web\WebAPI\**" />
+    <None Remove="Topic\AI\Evaluation\**" />
+    <None Remove="Topic\AI\Projects\**" />
+    <None Remove="Topic\AI\Prompt engineering\**" />
+    <None Remove="Topic\AI\RAG architecture\**" />
+    <None Remove="Topic\AI\System design\**" />
     <None Remove="Topic\Algorithms\Recursion\**" />
     <None Remove="Topic\Algorithms\Searching\**" />
     <None Remove="Topic\Algorithms\Sorting\**" />
@@ -70,17 +85,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Topic\AI\Projects\DocChatbot\Core\Interfaces\" />
-    <Folder Include="Topic\AI\Projects\DocChatbot\Core\Services\" />
-    <Folder Include="Topic\AI\Projects\DocChatbot\Infrastructure\" />
-    <Folder Include="Topic\AI\Projects\DocChatbot\Prompts\" />
-    <Folder Include="Topic\AI\Projects\Enterprise Document Processing System with GenAI\" />
-    <Folder Include="Topic\AI\System design\" />
-    <Folder Include="Topic\AI\Evaluation\" />
-    <Folder Include="Topic\AI\Projects\LogAnalyzerAI\" />
-    <Folder Include="Topic\AI\Projects\ResumeAnalyzer\" />
-    <Folder Include="Topic\AI\RAG architecture\" />
-    <Folder Include="Topic\AI\Prompt engineering\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\Build\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\CodeQuality\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\Deploy\" />
