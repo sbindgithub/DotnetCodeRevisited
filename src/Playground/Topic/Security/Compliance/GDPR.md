@@ -5,7 +5,9 @@
 The system implements enterprise-grade security, privacy, and compliance standards aligned with GDPR (General Data Protection Regulation) principles through multiple architectural, infrastructural, and application-level controls.
 
 The implementation focuses on:
-- Data privacy
+
+
+- - Data privacy
 - Secure authentication and authorization
 - Principle of Least Privilege
 - Secure secret management
