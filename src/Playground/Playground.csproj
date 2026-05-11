@@ -16,6 +16,7 @@
     <Compile Remove="Topic\Algorithms\Recursion\**" />
     <Compile Remove="Topic\Algorithms\Searching\**" />
     <Compile Remove="Topic\Algorithms\Sorting\**" />
+    <Compile Remove="Topic\Architecture\SOLID\**" />
     <Compile Remove="Topic\Collections\**" />
     <Compile Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <Compile Remove="Topic\Concurrency\Locks\**" />
@@ -38,6 +39,7 @@
     <EmbeddedResource Remove="Topic\Algorithms\Recursion\**" />
     <EmbeddedResource Remove="Topic\Algorithms\Searching\**" />
     <EmbeddedResource Remove="Topic\Algorithms\Sorting\**" />
+    <EmbeddedResource Remove="Topic\Architecture\SOLID\**" />
     <EmbeddedResource Remove="Topic\Collections\**" />
     <EmbeddedResource Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <EmbeddedResource Remove="Topic\Concurrency\Locks\**" />
@@ -60,6 +62,7 @@
     <None Remove="Topic\Algorithms\Recursion\**" />
     <None Remove="Topic\Algorithms\Searching\**" />
     <None Remove="Topic\Algorithms\Sorting\**" />
+    <None Remove="Topic\Architecture\SOLID\**" />
     <None Remove="Topic\Collections\**" />
     <None Remove="Topic\Concurrency\ConcurrentCollections\**" />
     <None Remove="Topic\Concurrency\Locks\**" />
@@ -93,7 +96,6 @@
     <Folder Include="Topic\Architecture\CI-CD\Steps\Test\" />
     <Folder Include="Topic\Architecture\DesignPatterns\" />
     <Folder Include="Topic\Architecture\CleanArchitecture\" />
-    <Folder Include="Topic\Architecture\SOLID\" />
     <Folder Include="Topic\Cloud\Containers\Kubernetes\" />
     <Folder Include="Topic\Cloud\Containers\DockerCompose\" />
     <Folder Include="Topic\Cloud\Serverless\" />

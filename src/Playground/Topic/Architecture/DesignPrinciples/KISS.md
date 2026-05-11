@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Playground.Topic.Dotnet.Runtime.MemoryManagement.GarbageCollection
+namespace Playground.Topic.Architecture.DesignPrinciples
 {
-    internal interface IDisposableVsGC
+    class SOLID
     {
     }
 }

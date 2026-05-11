@@ -43,6 +43,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\ci.yml = .github\workflows\ci.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CompleteDotnetResources", "CompleteDotnetResources", "{F518842A-1A45-4AA8-8F3E-BD6E0F3EAFDC}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\sarada\Downloads\LearningResources.xlsx = C:\Users\sarada\Downloads\LearningResources.xlsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +95,7 @@ Global
 		{CBE17FA8-463D-44EA-B854-579C79BEB99C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{103B69B8-B8AE-49AA-9C2B-D00AC8EE3BDF} = {343BBAEC-6EAA-4551-9180-699C4185AEBD}
+		{F518842A-1A45-4AA8-8F3E-BD6E0F3EAFDC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83E15828-9AED-4662-B0D2-989EAB6F87CA}
