@@ -22,7 +22,7 @@ Slide order:
 * Slide 3 → Enterprise Meaning
 * Slide 4 → Real-World Example
 * Slide 5 → Business Impact
-* Slide 6 → Story Panel
+`* Slide 6 → Story Panel
 * Slide 7 → Architect Takeaway
 * Slide 8 → CTA / Follow
 
