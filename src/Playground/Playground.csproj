@@ -81,6 +81,7 @@
 
   <ItemGroup>
     <Compile Include="Topic\DataAccess\SQLServer\Pagination\Pagination\CSharpPaginationExample.cs.md" />
+    <Compile Include="Topic\InterviewPreparation\Behavioral\Introduction\IntroduceYourself.md" />
   </ItemGroup>
 
   <ItemGroup>
@@ -104,6 +105,12 @@
     <Folder Include="Topic\DataStructures\Collections\" />
     <Folder Include="Topic\DataStructures\Queue\" />
     <Folder Include="Topic\DataStructures\Stack\" />
+    <Folder Include="Topic\InterviewPreparation\Architecture\DesignPatterns\" />
+    <Folder Include="Topic\InterviewPreparation\Architecture\DistributedSystems\" />
+    <Folder Include="Topic\InterviewPreparation\Architecture\IntegrationPatterns\" />
+    <Folder Include="Topic\InterviewPreparation\Architecture\Tradeoffs\" />
+    <Folder Include="Topic\InterviewPreparation\Architecture\Scalability\" />
+    <Folder Include="Topic\InterviewPreparation\CheatSheets\" />
     <Folder Include="Topic\Observability\CorrelationId\" />
     <Folder Include="Topic\Observability\Logging\Serilog\" />
     <Folder Include="Topic\Observability\StructuredLogging\" />
@@ -118,6 +125,8 @@
     <Folder Include="Topic\Paradigms\OOP\Inhertance\" />
     <Folder Include="Topic\Paradigms\OOP\Polymorphism\" />
     <Folder Include="Topic\Performance\Caching\InMemoryCache\" />
+    <Folder Include="Topic\ResumeAndBranding\ArchitectProfile\" />
+    <Folder Include="Topic\ResumeAndBranding\Resume\" />
     <Folder Include="Topic\Resilience\CircuitBreaker\" />
     <Folder Include="Topic\Resilience\Fallback\" />
     <Folder Include="Topic\Resilience\TimeoutHandling\" />
@@ -134,7 +143,6 @@
     <Folder Include="Topic\Testing\Mocking\" />
     <Folder Include="Topic\Testing\IntegrationTesting\" />
     <Folder Include="Topic\Testing\UnitTesting\" />
-    <Folder Include="Topic\Tooling\CLI\" />
     <Folder Include="Topic\Tooling\MSBuild\" />
     <Folder Include="Topic\Tooling\Templates\" />
     <Folder Include="Topic\Tooling\NuGet\" />
