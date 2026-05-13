@@ -1,53 +1,83 @@
-# Routing in ASP.NET Core
+# Routing in ASP.NET Core MVC
 
-Routing maps URL to controller action.
+Routing is the mechanism that maps an incoming HTTP request to a controller action method.
 
-Middleware:
+It analyzes:
 
+- URL
+- Controller name
+- Action name
+- Route parameters
+- HTTP method
+
+If a matching route is found, the request is processed.
+
+Otherwise, a 404 response is returned.
+
+---
+
+# Routing Flow
+
+```text
+Incoming HTTP Request
+        |
+        v
++----------------------+
+|   Routing Engine     |
++----------------------+
+        |
+        v
++----------------------+
+|     URL Parsing      |
++----------------------+
+        |
+        v
++----------------------+
+|  Find Matching Route |
++----------------------+
+        |
+        v
+   Route Found?
+    /      \
+  NO        YES
+  |          |
+  v          v
+404 Error   Execute Action
+```
+
+---
+
+# Types of Routing
+
+1. Convention-Based Routing
+2. Attribute Routing
+
+Both can coexist in the same application.
+
+---
+
+# Routing Middleware
+
+```csharp
 app.UseRouting();
+```
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapDefaultControllerRoute();
-});
+Enables routing middleware.
 
 ---
 
-Default Route:
+# Endpoint Mapping
 
-{controller=Home}/{action=Index}/{id?}
+```csharp
+app.MapControllerRoute();
+```
 
-Examples:
-
-/student/details/10
-
-Controller = Student
-Action = Details
-Id = 10
+Maps controller routes.
 
 ---
 
-Query String Examples:
+# Key Points
 
-/student/getstudentbyid/10
-
-/student/getstudentbyid?id=10
-
-/student/getstudentbyid?id=10&gender=male
-
----
-
-MapDefaultControllerRoute()
-
-Internally maps:
-
-pattern:
-"{controller=Home}/{action=Index}/{id?}"
-
-Default Controller:
-Home
-
-Default Action:
-Index
-
-id is optional due to ?
+- Routing maps URL to action method.
+- Routing works after middleware pipeline execution reaches routing middleware.
+- Attribute routing takes higher priority than convention routing.
