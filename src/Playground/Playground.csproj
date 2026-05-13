@@ -95,7 +95,6 @@
     <Folder Include="Topic\Architecture\CI-CD\Steps\Deploy\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\Package\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\Test\" />
-    <Folder Include="Topic\Architecture\DesignPatterns\" />
     <Folder Include="Topic\Architecture\CleanArchitecture\" />
     <Folder Include="Topic\Cloud\Containers\Kubernetes\" />
     <Folder Include="Topic\Cloud\Containers\DockerCompose\" />
