@@ -45,8 +45,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CompleteDotnetResources", "CompleteDotnetResources", "{F518842A-1A45-4AA8-8F3E-BD6E0F3EAFDC}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\sarada\Downloads\LearningResources.xlsx = C:\Users\sarada\Downloads\LearningResources.xlsx
+		..\..\..\..\Downloads\LearningResources.xlsx = ..\..\..\..\Downloads\LearningResources.xlsx
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{143023FE-4D2A-4840-BFEA-BCB2C6C541E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AI", "AI", "{B5D324F0-B665-4FC4-91D0-7D58DDA7A6A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-EnterpriseKnowledgeAssistant", "01-EnterpriseKnowledgeAssistant", "{51A1F9C2-8CDD-4318-849E-2AE10362275C}"
+	ProjectSection(SolutionItems) = preProject
+		src\Projects\AI\01-EnterpriseKnowledgeAssistant\EnterpriseKnowledgeAssistant.sln = src\Projects\AI\01-EnterpriseKnowledgeAssistant\EnterpriseKnowledgeAssistant.sln
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E7420093-34D0-450E-ADFD-BE598682376E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseKnowledgeAssistant.Api", "src\Projects\AI\01-EnterpriseKnowledgeAssistant\src\EnterpriseKnowledgeAssistant.Api\EnterpriseKnowledgeAssistant.Api.csproj", "{65D1F61F-BB22-E10F-F283-BEFDF58884D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -82,6 +95,18 @@ Global
 		{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01}.Release|x64.Build.0 = Release|Any CPU
 		{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01}.Release|x86.ActiveCfg = Release|Any CPU
 		{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01}.Release|x86.Build.0 = Release|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|x64.Build.0 = Debug|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|x86.Build.0 = Debug|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|x64.ActiveCfg = Release|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|x64.Build.0 = Release|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|x86.ActiveCfg = Release|Any CPU
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +121,11 @@ Global
 		{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{103B69B8-B8AE-49AA-9C2B-D00AC8EE3BDF} = {343BBAEC-6EAA-4551-9180-699C4185AEBD}
 		{F518842A-1A45-4AA8-8F3E-BD6E0F3EAFDC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{143023FE-4D2A-4840-BFEA-BCB2C6C541E7} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{B5D324F0-B665-4FC4-91D0-7D58DDA7A6A9} = {143023FE-4D2A-4840-BFEA-BCB2C6C541E7}
+		{51A1F9C2-8CDD-4318-849E-2AE10362275C} = {B5D324F0-B665-4FC4-91D0-7D58DDA7A6A9}
+		{E7420093-34D0-450E-ADFD-BE598682376E} = {51A1F9C2-8CDD-4318-849E-2AE10362275C}
+		{65D1F61F-BB22-E10F-F283-BEFDF58884D7} = {E7420093-34D0-450E-ADFD-BE598682376E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83E15828-9AED-4662-B0D2-989EAB6F87CA}

@@ -89,7 +89,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Topic\AI\03-Projects\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\Build\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\CodeQuality\" />
     <Folder Include="Topic\Architecture\CI-CD\Steps\Deploy\" />
