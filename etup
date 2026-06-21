@@ -1,0 +1,406 @@
+[1mdiff --git a/DotnetCodeRevisited.sln b/DotnetCodeRevisited.sln[m
+[1mindex 64251f1..b27e5e6 100644[m
+[1m--- a/DotnetCodeRevisited.sln[m
+[1m+++ b/DotnetCodeRevisited.sln[m
+[36m@@ -45,9 +45,22 @@[m [mProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{[m
+ EndProject[m
+ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CompleteDotnetResources", "CompleteDotnetResources", "{F518842A-1A45-4AA8-8F3E-BD6E0F3EAFDC}"[m
+ 	ProjectSection(SolutionItems) = preProject[m
+[31m-		C:\Users\sarada\Downloads\LearningResources.xlsx = C:\Users\sarada\Downloads\LearningResources.xlsx[m
+[32m+[m		[32m..\..\..\..\Downloads\LearningResources.xlsx = ..\..\..\..\Downloads\LearningResources.xlsx[m
+ 	EndProjectSection[m
+ EndProject[m
+[32m+[m[32mProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{143023FE-4D2A-4840-BFEA-BCB2C6C541E7}"[m
+[32m+[m[32mEndProject[m
+[32m+[m[32mProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AI", "AI", "{B5D324F0-B665-4FC4-91D0-7D58DDA7A6A9}"[m
+[32m+[m[32mEndProject[m
+[32m+[m[32mProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-EnterpriseKnowledgeAssistant", "01-EnterpriseKnowledgeAssistant", "{51A1F9C2-8CDD-4318-849E-2AE10362275C}"[m
+[32m+[m	[32mProjectSection(SolutionItems) = preProject[m
+[32m+[m		[32msrc\Projects\AI\01-EnterpriseKnowledgeAssistant\EnterpriseKnowledgeAssistant.sln = src\Projects\AI\01-EnterpriseKnowledgeAssistant\EnterpriseKnowledgeAssistant.sln[m
+[32m+[m	[32mEndProjectSection[m
+[32m+[m[32mEndProject[m
+[32m+[m[32mProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E7420093-34D0-450E-ADFD-BE598682376E}"[m
+[32m+[m[32mEndProject[m
+[32m+[m[32mProject("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseKnowledgeAssistant.Api", "src\Projects\AI\01-EnterpriseKnowledgeAssistant\src\EnterpriseKnowledgeAssistant.Api\EnterpriseKnowledgeAssistant.Api.csproj", "{65D1F61F-BB22-E10F-F283-BEFDF58884D7}"[m
+[32m+[m[32mEndProject[m
+ Global[m
+ 	GlobalSection(SolutionConfigurationPlatforms) = preSolution[m
+ 		Debug|Any CPU = Debug|Any CPU[m
+[36m@@ -82,6 +95,18 @@[m [mGlobal[m
+ 		{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01}.Release|x64.Build.0 = Release|Any CPU[m
+ 		{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01}.Release|x86.ActiveCfg = Release|Any CPU[m
+ 		{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01}.Release|x86.Build.0 = Release|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|Any CPU.Build.0 = Debug|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|x64.ActiveCfg = Debug|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|x64.Build.0 = Debug|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|x86.ActiveCfg = Debug|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Debug|x86.Build.0 = Debug|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|Any CPU.ActiveCfg = Release|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|Any CPU.Build.0 = Release|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|x64.ActiveCfg = Release|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|x64.Build.0 = Release|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|x86.ActiveCfg = Release|Any CPU[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7}.Release|x86.Build.0 = Release|Any CPU[m
+ 	EndGlobalSection[m
+ 	GlobalSection(SolutionProperties) = preSolution[m
+ 		HideSolutionNode = FALSE[m
+[36m@@ -96,6 +121,11 @@[m [mGlobal[m
+ 		{13255664-F3C6-4E6C-B2FA-CBC6C3C4DD01} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}[m
+ 		{103B69B8-B8AE-49AA-9C2B-D00AC8EE3BDF} = {343BBAEC-6EAA-4551-9180-699C4185AEBD}[m
+ 		{F518842A-1A45-4AA8-8F3E-BD6E0F3EAFDC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}[m
+[32m+[m		[32m{143023FE-4D2A-4840-BFEA-BCB2C6C541E7} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}[m
+[32m+[m		[32m{B5D324F0-B665-4FC4-91D0-7D58DDA7A6A9} = {143023FE-4D2A-4840-BFEA-BCB2C6C541E7}[m
+[32m+[m		[32m{51A1F9C2-8CDD-4318-849E-2AE10362275C} = {B5D324F0-B665-4FC4-91D0-7D58DDA7A6A9}[m
+[32m+[m		[32m{E7420093-34D0-450E-ADFD-BE598682376E} = {51A1F9C2-8CDD-4318-849E-2AE10362275C}[m
+[32m+[m		[32m{65D1F61F-BB22-E10F-F283-BEFDF58884D7} = {E7420093-34D0-450E-ADFD-BE598682376E}[m
+ 	EndGlobalSection[m
+ 	GlobalSection(ExtensibilityGlobals) = postSolution[m
+ 		SolutionGuid = {83E15828-9AED-4662-B0D2-989EAB6F87CA}[m
+[1mdiff --git a/src/Playground/Playground.csproj b/src/Playground/Playground.csproj[m
+[1mindex a6a6cdb..22c1a78 100644[m
+[1m--- a/src/Playground/Playground.csproj[m
+[1m+++ b/src/Playground/Playground.csproj[m
+[36m@@ -89,7 +89,6 @@[m
+   </ItemGroup>[m
+ [m
+   <ItemGroup>[m
+[31m-    <Folder Include="Topic\AI\03-Projects\" />[m
+     <Folder Include="Topic\Architecture\CI-CD\Steps\Build\" />[m
+     <Folder Include="Topic\Architecture\CI-CD\Steps\CodeQuality\" />[m
+     <Folder Include="Topic\Architecture\CI-CD\Steps\Deploy\" />[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Infrastructure/AzureAISearchClient.cs b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Infrastructure/AzureAISearchClient.cs[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Infrastructure/BlobStorageService.cs b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Infrastructure/BlobStorageService.cs[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Infrastructure/OpenAIClient.cs b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Infrastructure/OpenAIClient.cs[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Infrastructure/VectorStoreService.cs b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Infrastructure/VectorStoreService.cs[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Observability/CostMonitoring.md b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Observability/CostMonitoring.md[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Observability/Logging-And-Tracing.md b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Observability/Logging-And-Tracing.md[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Observability/TokenUsageMonitoring.md b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Observability/TokenUsageMonitoring.md[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Prompts/RetrievalPrompt.txt b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Prompts/RetrievalPrompt.txt[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Prompts/SummarizationPrompt.txt b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Prompts/SummarizationPrompt.txt[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Prompts/SystemPrompt.txt b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Prompts/SystemPrompt.txt[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Security/AuthorizationDesign.md b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Security/AuthorizationDesign.md[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Security/PIIHandling.md b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Security/PIIHandling.md[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Security/PromptInjectionMitigation.md b/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/Security/PromptInjectionMitigation.md[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/LessonsLearned.md b/src/Playground/Topic/AI/03-Projects/01-EnterpriseKnowledgeAssistant/LessonsLearned.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/LessonsLearned.md[m
+[1mrename to src/Playground/Topic/AI/03-Projects/01-EnterpriseKnowledgeAssistant/LessonsLearned.md[m
+[1mdiff --git a/src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/README.md b/src/Playground/Topic/AI/03-Projects/01-EnterpriseKnowledgeAssistant/README.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/AI/03-Projects/01-EnterpriseDocChatbot/README.md[m
+[1mrename to src/Playground/Topic/AI/03-Projects/01-EnterpriseKnowledgeAssistant/README.md[m
+[1mdiff --git a/src/Playground/Topic/Career/InterviewPreparation/Behavioral/Introduction/IntroduceYourself.md b/src/Playground/Topic/Career/InterviewPreparation/Behavioral/Introduction/IntroduceYourself.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d4a83dc[m
+[1m--- /dev/null[m
+[1m+++ b/src/Playground/Topic/Career/InterviewPreparation/Behavioral/Introduction/IntroduceYourself.md[m
+[36m@@ -0,0 +1,136 @@[m
+[32m+[m[32m﻿# Introduce Yourself — Senior .NET Developer → Architect Track[m
+[32m+[m
+[32m+[m[32m# Short Version (1–2 Minutes)[m
+[32m+[m
+[32m+[m[32mHello, I am Sarada Behera.[m[41m  [m
+[32m+[m[32mI have around 15+ years of experience in Microsoft technologies, primarily in enterprise application development using the .NET ecosystem.[m
+[32m+[m
+[32m+[m[32mCurrently, I am working as an Associate Lead where I am involved not only in development activities but also in technical leadership responsibilities such as:[m
+[32m+[m[32m- mentoring junior developers[m
+[32m+[m[32m- task planning and assignment[m
+[32m+[m[32m- code reviews[m
+[32m+[m[32m- technical decision making[m
+[32m+[m[32m- production issue analysis[m
+[32m+[m[32m- coordinating with cross-functional teams[m
+[32m+[m
+[32m+[m[32mMy technical expertise includes:[m
+[32m+[m[32m- .NET Core[m
+[32m+[m[32m- ASP.NET MVC[m
+[32m+[m[32m- Web API[m
+[32m+[m[32m- Angular[m
+[32m+[m[32m- SQL Server[m
+[32m+[m[32m- SSIS/SSRS[m
+[32m+[m[32m- enterprise integrations[m
+[32m+[m
+[32m+[m[32mI have worked across domains like logistics, supply chain, and telecom, where system reliability and integration are very important.[m
+[32m+[m
+[32m+[m[32mIn recent years, I have been focusing more on:[m
+[32m+[m[32m- scalable system design[m
+[32m+[m[32m- API integrations[m
+[32m+[m[32m- performance optimization[m
+[32m+[m[32m- modern architecture practices[m
+[32m+[m
+[32m+[m[32mOne of the key projects I worked on involved integrating enterprise logistics systems with external partner platforms for real-time operational workflows and invoicing processes.[m
+[32m+[m
+[32m+[m[32mI am now looking to move further into Solution Architecture responsibilities where I can contribute not only as a developer, but also in:[m
+[32m+[m[32m- architecture and design decisions[m
+[32m+[m[32m- platform modernization[m
+[32m+[m[32m- technical leadership[m
+[32m+[m[32m- scalability planning[m
+[32m+[m[32m- engineering best practices[m
+[32m+[m
+[32m+[m[32mI believe my combination of hands-on development experience and leadership exposure helps me bridge both technical and business expectations effectively.[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m# Stronger Architect-Oriented Version[m
+[32m+[m
+[32m+[m[32mHello, I am Sarada Ranjan Behera, a Senior .NET Full Stack Developer with 15+ years of experience designing and developing enterprise applications primarily using Microsoft technologies.[m
+[32m+[m
+[32m+[m[32mMy core expertise includes:[m
+[32m+[m[32m- .NET Core[m
+[32m+[m[32m- ASP.NET MVC[m
+[32m+[m[32m- REST APIs[m
+[32m+[m[32m- Angular[m
+[32m+[m[32m- SQL Server[m
+[32m+[m[32m- Enterprise integrations[m
+[32m+[m[32m- Application modernization[m
+[32m+[m
+[32m+[m[32mI have worked extensively in logistics and supply chain domains where system reliability, scalability, and integration complexity are critical.[m
+[32m+[m
+[32m+[m[32mIn my recent assignments, I have been involved not only in coding but also in:[m
+[32m+[m[32m- Designing integration workflows[m
+[32m+[m[32m- API contract discussions[m
+[32m+[m[32m- Performance tuning[m
+[32m+[m[32m- Database optimization[m
+[32m+[m[32m- Release coordination[m
+[32m+[m[32m- Production issue analysis[m
+[32m+[m
+[32m+[m[32mOne of the areas I enjoy most is understanding how large enterprise systems interact across platforms and how architecture decisions directly impact scalability, maintainability, and business agility.[m
+[32m+[m
+[32m+[m[32mCurrently, I am actively strengthening my knowledge in:[m
+[32m+[m[32m- Microservices[m
+[32m+[m[32m- Cloud architecture[m
+[32m+[m[32m- Distributed systems[m
+[32m+[m[32m- Design patterns[m
+[32m+[m[32m- Enterprise architecture practices[m
+[32m+[m
+[32m+[m[32mMy long-term goal is to move into a Solution Architect role where I can help organizations build scalable and maintainable platforms while mentoring engineering teams technically.[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m# Important Interview Tips[m
+[32m+[m
+[32m+[m[32m## Avoid These Mistakes[m
+[32m+[m
+[32m+[m[32m### ❌ Do NOT:[m
+[32m+[m[32m- Tell your entire life story[m
+[32m+[m[32m- Mention every technology you touched[m
+[32m+[m[32m- Speak for 10 minutes[m
+[32m+[m[32m- Sound memorized[m
+[32m+[m[32m- Say “I know everything”[m
+[32m+[m
+[32m+[m[32m### ✅ Instead:[m
+[32m+[m[32m- Keep structure clean[m
+[32m+[m[32m- Speak confidently[m
+[32m+[m[32m- Show progression[m
+[32m+[m[32m- Show ownership[m
+[32m+[m[32m- Show architectural thinking[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m# Architect-Level Keywords To Naturally Use[m
+[32m+[m
+[32m+[m[32m- Scalability[m
+[32m+[m[32m- Maintainability[m
+[32m+[m[32m- Integration[m
+[32m+[m[32m- Enterprise systems[m
+[32m+[m[32m- Modernization[m
+[32m+[m[32m- Distributed systems[m
+[32m+[m[32m- Reliability[m
+[32m+[m[32m- Performance optimization[m
+[32m+[m[32m- Technical leadership[m
+[32m+[m[32m- Solution design[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m# Delivery Strategy[m
+[32m+[m
+[32m+[m[32m## Voice[m
+[32m+[m
+[32m+[m[32m- Slow[m
+[32m+[m[32m- Controlled[m
+[32m+[m[32m- Professional[m
+[32m+[m
+[32m+[m[32m## Body Language[m
+[32m+[m
+[32m+[m[32m- Sit straight[m
+[32m+[m[32m- Maintain eye contact[m
+[32m+[m[32m- Small pauses after important points[m
+[32m+[m
+[32m+[m[32m## Most Important[m
+[32m+[m
+[32m+[m[32mDo not sound desperate for a job.[m
+[32m+[m
+[32m+[m[32mSound like:[m
+[32m+[m[32m“I can solve enterprise problems.”[m
+\ No newline at end of file[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/ConflictHandling.md b/src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/ConflictHandling.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/ConflictHandling.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/ConflictHandling.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/DeliveryPressureHandling.md b/src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/DeliveryPressureHandling.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/DeliveryPressureHandling.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/DeliveryPressureHandling.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/OwnershipExamples.md b/src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/OwnershipExamples.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/OwnershipExamples.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/OwnershipExamples.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/StakeholderManagement.md b/src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/StakeholderManagement.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/StakeholderManagement.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/StakeholderManagement.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/TeamManagement.md b/src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/TeamManagement.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/TeamManagement.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/TeamManagement.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/TechnicalDecisionMaking.md b/src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/TechnicalDecisionMaking.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Behavioral/Leadership/TechnicalDecisionMaking.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Behavioral/Leadership/TechnicalDecisionMaking.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Preambles/DecodingInterviewDynamics.md b/src/Playground/Topic/Career/InterviewPreparation/Preambles/DecodingInterviewDynamics.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Preambles/DecodingInterviewDynamics.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Preambles/DecodingInterviewDynamics.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/ArchitectureDiscussions/APIversioning.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/ArchitectureDiscussions/APIversioning.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/ArchitectureDiscussions/APIversioning.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/ArchitectureDiscussions/APIversioning.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/ArchitectureDiscussions/BFFPattern.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/ArchitectureDiscussions/BFFPattern.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/ArchitectureDiscussions/BFFPattern.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/ArchitectureDiscussions/BFFPattern.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/Concepts.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/Concepts.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/Concepts.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/Concepts.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/DependencyInjection.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/DependencyInjection.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/DependencyInjection.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/DependencyInjection.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/HowASPCoreIsModular.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/HowASPCoreIsModular.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/HowASPCoreIsModular.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/HowASPCoreIsModular.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/ModelBinding.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/ModelBinding.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/ModelBinding.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/ModelBinding.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/Routing.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/Routing.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/Routing.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/Routing.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/RunningCoreOnFrameowrk.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/RunningCoreOnFrameowrk.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Fundamentals/RunningCoreOnFrameowrk.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Fundamentals/RunningCoreOnFrameowrk.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Middleware/CustomMiddleware.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Middleware/CustomMiddleware.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Middleware/CustomMiddleware.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Middleware/CustomMiddleware.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Middleware/ExceptionHandling.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Middleware/ExceptionHandling.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Middleware/ExceptionHandling.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Middleware/ExceptionHandling.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/ProductionFailures/ConnectionPoolIssue.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/ProductionFailures/ConnectionPoolIssue.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/ProductionFailures/ConnectionPoolIssue.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/ProductionFailures/ConnectionPoolIssue.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/ProductionFailures/MemoryLeak.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/ProductionFailures/MemoryLeak.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/ProductionFailures/MemoryLeak.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/ProductionFailures/MemoryLeak.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/AuthenticationFailure.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/AuthenticationFailure.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/AuthenticationFailure.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/AuthenticationFailure.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/HighLatencyIssue.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/HighLatencyIssue.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/HighLatencyIssue.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/HighLatencyIssue.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/RedisFailureInterviewVersion.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/RedisFailureInterviewVersion.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/RedisFailureInterviewVersion.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/RedisFailureInterviewVersion.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/ScalingIssue.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/ScalingIssue.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/ScalingIssue.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/RealLifeScenarios/ScalingIssue.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Security/JWT.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Security/JWT.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Security/JWT.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Security/JWT.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Security/OAuth.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Security/OAuth.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Security/OAuth.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Security/OAuth.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Security/OpenIDConnect.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Security/OpenIDConnect.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/Security/OpenIDConnect.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/Security/OpenIDConnect.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/SystemDesignRounds/DesignECommerceAPI.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/SystemDesignRounds/DesignECommerceAPI.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/SystemDesignRounds/DesignECommerceAPI.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/SystemDesignRounds/DesignECommerceAPI.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/SystemDesignRounds/DesignNotificationService.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/SystemDesignRounds/DesignNotificationService.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/ASPNETCore/SystemDesignRounds/DesignNotificationService.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/ASPNETCore/SystemDesignRounds/DesignNotificationService.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/Azure/Compute/AKS.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Compute/AKS.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/Azure/Compute/AKS.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Compute/AKS.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/Azure/Compute/AppServices.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Compute/AppServices.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/Azure/Compute/AppServices.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Compute/AppServices.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/Azure/Compute/AzureFunctions.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Compute/AzureFunctions.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/Azure/Compute/AzureFunctions.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Compute/AzureFunctions.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/Azure/Networking/PrivateEndpoints.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Networking/PrivateEndpoints.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/Azure/Networking/PrivateEndpoints.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Networking/PrivateEndpoints.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/Azure/Networking/VNet.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Networking/VNet.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/Azure/Networking/VNet.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Networking/VNet.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/Azure/RealLifeScenarios/AzureRegionFailure.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/RealLifeScenarios/AzureRegionFailure.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/Azure/RealLifeScenarios/AzureRegionFailure.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/RealLifeScenarios/AzureRegionFailure.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/Azure/RealLifeScenarios/ServiceBusDLQ.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/RealLifeScenarios/ServiceBusDLQ.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/Azure/RealLifeScenarios/ServiceBusDLQ.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/RealLifeScenarios/ServiceBusDLQ.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/Azure/Security/KeyVault.md b/src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Security/KeyVault.md[m
+[1msimilarity index 100%[m
+[1mrename from src/Playground/Topic/InterviewPreparation/Technical/Azure/Security/KeyVault.md[m
+[1mrename to src/Playground/Topic/Career/InterviewPreparation/Technical/Azure/Security/KeyVault.md[m
+[1mdiff --git a/src/Playground/Topic/InterviewPreparation/Technical/Azure/Securi

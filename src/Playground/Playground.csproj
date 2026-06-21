@@ -80,8 +80,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Topic\DataAccess\SQLServer\Pagination\Pagination\CSharpPaginationExample.cs.md" />
-    <Compile Include="Topic\InterviewPreparation\Behavioral\Introduction\IntroduceYourself.md" />
+    <Content Include="Topic\DataAccess\SQLServer\Pagination\Pagination\CSharpPaginationExample.cs.md" />
+    <Content Include="Topic\Career\InterviewPreparation\Behavioral\Introduction\IntroduceYourself.md" />
   </ItemGroup>
 
   <ItemGroup>
